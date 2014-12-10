@@ -1,0 +1,73 @@
+
+\documentclass{article}
+\usepackage{amssymb, amsmath}
+\numberwithin{equation}{section}
+\title{Notes on Particle Cosmology}
+\author{Rob Roy Fletcher, Professor Mark Trodden}
+
+%%%%%%%%----  Macros ----%%%%%%%%%%%%%%%
+\newcommand{\Lagr}{\mathcal{L}}  %lagrangian
+\newcommand{\dmu}{\partial_{\mu}} 
+\newcommand{\mnk}{\eta_{\mu \nu}}  %minkowski metric lower indices
+\newcommand{\mtr}{g_{\mu \nu}}     % metric lower indices
+\newcommand{\Mnk}{\eta^{\mu \nu}}
+\newcommand{\Mtr}{g^{\mu \nu}}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+  
+%%%%%%%---- Begin Document ----%%%%%%%%%%
+\begin{document}
+\maketitle
+\section{August 29, 2013}
+\subsection{Review of General Relativity}
+
+Special Relativity can be thought of as transformations that leave invariant the interval,      $(c=1)$
+\beq
+    ds^2 = -dt^2 + dx^2 + dy^2 + dz^2
+    = \mnk dx^\mu dx^\nu
+\eeq
+
+What transformations leave $ds^2$ invariant?
+
+$\longrightarrow$   The Lorentz Transformations.
+\beq
+    x^{\mu'} = \Lambda^{\mu'}_{\mu} x^\mu
+    \Lambda^{\mu'}_{\mu} = \frac{\partial x^{\mu'}}{\partial x^{\mu}}
+\eeq
+
+To ensure our physical laws are Lorentz invariant we write them in terms of vectors ({\it contravariant vectors}) and covectors ({\it covariant vectors}).
+
+A vector transforms as $V^{\mu'} = {\Lambda^{\mu'}}_{\mu} V^\mu$.
+
+A covector transforms as $W_{\mu'} = {\Lambda^{\mu}}_{\mu'} W_\mu$.
+
+A general $(m,n)$ Tensor ${T^{\mu_{1},\mu_{2}...\mu_{m}}}_{\nu_{1},\nu_{2}...\nu_{n}}$ transforms as
+${T^{\mu_{1}',\mu_{2}'...\mu_{m}'}}_{\nu_{1}',\nu_{2}'...\nu_{n}'} =\Lambda \Lambda ... \Lambda ... \Lambda {T^{\mu_{1},\mu_{2}...\mu_{m}}}_{\nu_{1},\nu_{2}...\nu_{n}}$
+
+e.g. Electromagnetism:
+
+\begin{centering}
+$A^\mu = (\phi, \vec{A})$\ \ \ \ \ \ $J^\mu = (q, \vec{J})$
+
+$F\equiv \dmu A_\nu - \partial_{\nu} A_\mu$
+
+$\dmu F^{\nu \mu} = J^\nu$  \ \ \ \ \ \ $\partial_{[\mu} F_{\rho \nu ]} = 0$ 
+
+\end{centering}
+
+
+
+How to write down physical laws in this space? ($ds^2 = -dt^2 + dx^2 + dy^2 + dz^2$)
+We want to leave $ds^2$ invariant under any transformation of coordinates. \underline{General Coordinate Invariance}. To achieve this
+we need to define versions of vectors, covectors and tensors that work in curved spaces. Need to change the definition of the derivative
+as well to make everything work.
+
+%%%%%%%%%%%%%%%%%%%%%%%%-------  September 3, 2013 -----------%%%%%%%%%%%%%%%%%%%%
+\section{September 3, 2013}
+\subsection{Review of General Relativity (Cont.)}
+
+
+
+
+
+\end{document}

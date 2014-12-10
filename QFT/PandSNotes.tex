@@ -1,0 +1,153 @@
+\documentclass{article}
+\usepackage{amssymb, amsmath}
+\numberwithin{equation}{section}
+\title{Notes on Peskin and Schroeder QFT}
+\author{Rob Roy Fletcher}
+
+%%%%%%%%----  Macros ----%%%%%%%%%%%%%%%
+\newcommand{\Lagr}{\mathcal{L}}  %lagrangian
+\newcommand{\dmu}{\partial_{\mu}} 
+\newcommand{\Dmu}{\partial^{\mu}}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+
+%%%%%%%---- Begin Document ----%%%%%%%%%%
+\begin{document}
+
+\section{Introduction}
+\section{The Klein-Gordon Field}
+\subsection{The Necessity of the Field Viewpoint}
+This stuff is all pretty obvious. No notes for now.
+
+\subsection{Elements of Classical Field Theory}
+\subsubsection{Lagrangian Field Theory}
+Derivation of the Euler-Lagrange equation for a single field. starting with equation (2.2) in the book
+\begin{equation*}\label{ps2.2}\tag{PS 2.2}
+	0=\delta S= \int d^4 x \lbrace \frac{\partial\Lagr}{\partial\phi} \delta\phi + \frac{\partial\Lagr}{\partial\left(\dmu\phi\right)} \delta\left(\dmu\phi\right) \rbrace
+\end{equation*}
+First we use Integration by parts on the last term.
+\begin{equation}\label{Az1}
+	\int d^4 x \frac{\partial\Lagr}{\partial\left(\dmu\phi\right)} \delta\left(\dmu\phi\right)
+	= \frac{\partial\Lagr}{\partial(\dmu\phi)} \delta\phi - \int d^4 x \dmu\left(\frac{\partial\Lagr}{\partial\left(\dmu\phi\right)}\right) \delta\phi
+\end{equation}
+Then we can put the first term back in integral form by integrating and differentiating to make it look like it does in the book.
+ Now to get the Euler-Lagrange equation, we notice that the first term in \eqref{Az1} is the surface term and should be evaluated
+at the endpoints of $\delta S$. However, the endpoints of the action do not change, only the path between the endpoints changes so
+$\delta S$ there is zero. Then we have,
+\begin{equation}\label{Az2}
+	0 = \int d^4 x \lbrace \frac{\partial\Lagr}{\partial\phi} \delta\phi - \dmu\left(\frac{\partial\Lagr}{\partial\left(\dmu\phi\right)}\right) \delta\phi \rbrace
+	= \int d^4 x \lbrace \frac{\partial\Lagr}{\partial\phi} - \dmu\left(\frac{\partial\Lagr}{\partial\left(\dmu\phi\right)}\right) \rbrace \delta\phi
+\end{equation}
+Since we are choosing paths that have non-zero $\delta\phi$ the part of the integrand in brackets must be zero. This is the Euler-Lagrange equation.
+\begin{equation}\label{ELeq}
+	\frac{\partial\Lagr}{\partial\phi} - \dmu\left(\frac{\partial\Lagr}{\partial\left(\dmu\phi\right)}\right) = 0
+\end{equation}
+
+
+%%%%%%%%%%%----- Hamiltonian Field Theory ----%%%%%%%%%%%%%%%
+\subsubsection{Hamiltonian Field Theory}
+
+\subsubsection{Noether's Theorem}
+
+%%%%%%%%%%%------ section 2.3 ----------%%%%%%%%%%%%%%%%%%%
+\subsection{The Klein-Gordon Field as Harmonic Oscillators}
+
+First transform the Klein-Gordon field from position space to Fourier or momentum space. Fourier transform is defined as:
+\begin{equation}
+    f(x) = \int \frac{d^4 k}{(2\pi)^4} e^{-ik \cdot x} \tilde{f}(x)
+\end{equation}
+and the inverse Fourier transform as:
+\begin{equation}
+    \tilde{f}(x) = \int d^4x e^{ik \cdot x} f(x)
+\end{equation}
+Now if we expand the Klein-Gordon Field as
+\begin{equation}
+    \phi(\mathbf{x},t) = \int \frac{d^3p}{(2\pi)^3} e^{i\mathbf{p} \cdot \mathbf{x}} \phi(\mathbf{p},t)
+\end{equation}
+Plugging this into the normal position space Klein-Gordon equation we have
+\begin{equation}
+    \left[ \frac{\partial^2}{\partial t^2} - \nabla ^2 + m^2 \right] 
+    \int \frac{d^3p}{(2\pi)^3} e^{i\mathbf{p} \cdot \mathbf{x}} \phi(\mathbf{p},t) = 0
+\end{equation}
+If we distribute the integral over all three terms then look at the second one with the gradient in it we can see this will just pull down two factors of $ip$. The equation becomes
+\begin{equation}
+    \int \frac{d^3p}{(2\pi)^3} e^{i\mathbf{p} \cdot \mathbf{x}}  \left[ \frac{\partial^2}{\partial t^2} + |p|^2 + m^2 \right] \phi(\mathbf{p},t) = 0
+\end{equation}
+If we let 
+\begin{equation}
+    f(\mathbf{p},t) = \left[ \frac{\partial^2}{\partial t^2} + |p|^2 + m^2 \right] \phi(\mathbf{p},t)
+\end{equation}
+then this is just a Fourier transform of a function $f(\mathbf{x},t)$. Using the definition of the inverse Fourier Transform above we can see that if the Fourier transform of a function is zero then that function must be zero. Therefore we have $f(\mathbf{x},t) = 0$ or 
+\begin{equation}
+    \left[ \frac{\partial^2}{\partial t^2} + |p|^2 + m^2 \right] \phi(\mathbf{p},t) = 0.
+\end{equation}
+
+
+%%%%%%%%%%%%--------- Chapter 2 Solutions --------------%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Solutions to CH.2 Problems}
+
+\textbf{2.1)} Fill this in later. Have done this problem in E+M and in GR.
+
+\vspace{10mm}
+
+\noindent
+\textbf{ 2.2) The complex scalar field.} Consider the field theory of a complex-valued scalar field obeying the Klein-Gordon equation.
+ The action of this theory is
+\beq
+    S = \int d^4x (\dmu \phi^* \Dmu \phi - m^2 \phi^* \phi).
+\eeq
+It is easiest to analyze this theory by considering $\phi(x)$ and $\phi^*(x)$, rather than the real and imaginary parts of $\phi(x)$ as the
+basic dynamic variables.
+
+\textbf{(a)} Find the conjugate momenta to $\phi(x)$ and $\phi^*(x)$ and the canonical commutation relations. Show that the Hamiltonian is
+\beq
+    H = \int d^3x (\pi^*\pi + \nabla\phi^* \dot \nabla \phi + m^2 \phi^*\phi).
+\eeq
+Compute the Heisenberg equation of motion for $\phi(x)$ and show that it is indeed the Klein-Gordon equation.
+\vspace{5mm}
+%%%%%%--solution---%%%%%%
+    The conjugate momentum is defined as
+    \beq
+        \pi(x) \equiv \frac{\partial \Lagr}{\partial \dot \phi(x)}
+    \eeq
+    and our Lagrangian density in this case is
+    \beq
+        \Lagr = \dmu \phi^* \Dmu \phi - m^2 \phi^*\phi
+    \eeq
+    So then we have
+    \beq
+    \begin{split}
+        \pi(x) = \frac{\partial}{\partial \dot \phi(x)}(\dmu \phi^* \Dmu \phi - m^2\phi^*\phi)
+       \\ = \frac{\partial}{\partial \dot \phi(x)}( \partial_{t}\phi^* \partial^{t}\phi + \nabla\phi^* \cdot \nabla\phi- m^2\phi^*\phi)
+       \\ =\frac{\partial}{\partial \dot \phi(x)}(\dot\phi^* \dot\phi+ \nabla\phi^* \cdot \nabla\phi- m^2\phi^*\phi)
+       \\ = \dot\phi^*(x)
+    \end{split}
+    \eeq
+    Using this same procedure we can see that we will also have $\pi^*(x) = \dot \phi(x)$.
+
+    The cannonical commutators are,
+    \beq
+    \begin{split}
+        [\phi(x), \pi(y)] = i \delta(x-y) \\
+        [\phi^*(x), \pi^*(y)] = i \delta(x-y)\\
+    \end{split}
+    \eeq
+    With all others equal to zero.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
+

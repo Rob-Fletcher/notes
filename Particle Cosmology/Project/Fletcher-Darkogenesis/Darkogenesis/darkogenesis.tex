@@ -1,0 +1,160 @@
+%%%%% Darkogenesis
+
+\section{Darkogenesis}
+
+\subsection{Overview}
+As in all asymmetric dark matter models we need to create an asymmetry in either the visible sector baryon number or a dark sector analogue to this we will call dark 
+baryon number. In the Darkogenesis model the choice is made to focus on an asymmetry originating in the dark sector then transfering it to the visible sector by one of 
+two processes. As was stated ealier, the conditions to generate an asymmetry are the Sakharov conditions which for the dark sector are:
+\begin{itemize}
+    \item dark baryon number violation
+    \item the dark sector must have a departure from equilibrium
+    \item the dark sector must also violate both C and CP
+\end{itemize}
+For the darkogenesis model the departure from equilibrium in the dark sector is in the form of a first order phase transition that is completely independent of the 
+visible sector. After the asymmetry is generated it must then be redistributed to the visible sector. This can be accomplished by either perturbative mechanisms 
+with a higher dimension operator that couples the dark sector to the visible one through a baryon violating process, or a non-perturbative mechanism via 
+electroweak sphalerons.
+
+The departure from equilibrium comes from the first order phase transition in the dark sector but we still need to satisfy the other two Sakharov conditions. We must 
+have a dark number violating process which is rapid enough to annihilate away the extra dark anti-baryon number in the unbroken phase but is supressed in the broken phase. 
+The process must also shut off faster than the time scale of the passage of the bubble wall. These two requirements imply that the best candidate for this process is 
+dark sphalerons since in the broken phase the rate is supressed exponentially.
+\beq
+    \Gamma(T) \propto e^{-E_{sph}(T)/T}
+\eeq
+We still need to have C and CP violation in the dark sector to satisfy our conditions for asymmetry. This is achieved by a dark non-abelian gauge group $SU(\chi)$ and we 
+require that the dark sector have a global $U(1)_D$ which has a chiral anomaly under $SU(\chi)$. The $SU(\chi)$ group is broken using a scalar Higgs boson. The minimal 
+matter content that satisfies all of these criteria consists of two Higgs doublets, 2 fermionic doublets and 4 fermionic singlets \cite{darko} summarized in table \ref{matter}. 
+
+\begin{table}[h]
+\centering
+\begin{tabular}{l | c | r} 
+    \label{matter}
+         & $SU(2)_D$  &  $U(1)_D$ \\
+    \hline
+    $H, H^c$ & 2 & 0 \\
+    $L_D \times 2$ & 2 & 1 \\
+    $\bar{X}_{1,2} \times 2$ & 1 & -1
+\end{tabular}
+\caption{Matter content in the minimal dark sector.}
+\end{table}
+
+Because the parameter space in the dark sector is large it is easy to ensure that the phase transition is first order. The use of the scalar Higgs in this model 
+makes it easy to embed in supersymmetry. The simplest dark sector that obeys all of these properties has the superpotential
+\beq \label{superpot}
+    W = \mu_D H H^c + y_{1i} L_D H \bar{X}_i + y_{2j} L_D H^c \bar{X}_j
+\eeq
+With the dark sector described now satisfying the Sakharov critera we can begin to look at the mechanisms which transfer the asymmetry.
+
+For the case where the asymmetry transfer happens perturbatively we need to use some higher dimension operators. These operators must link the visible 
+and dark sectors so they must carry non-zero baryon number (or lepton number) and dark baryon number. Some examples of the lowest order operators are
+\beq \begin{split}
+    & \mathcal{O}_{d+5/2} = \frac{\mathcal{O}_d LH}{\Lambda^{d-3/2}} \\
+    & \mathcal{O}_{d+9/2,B} = \frac{\mathcal{O}_d u^c d^c d^c}{\Lambda^{d+1/2}} \\
+    & \mathcal{O}_{d+9/2,L1} = \frac{\mathcal{O}_d L L e^c}{\Lambda^{d+1/2}} \\
+\end{split} \eeq
+Because there can be lepton number violating only operators, the dark sector phase transition must happen above the electroweak phase transition. This is because 
+we want the dark sector asymmetry to be transfered to a baryon asymmetry so if instead it is transfered to a visible lepton asymmetry the electroweak phase transition 
+can reprocess this to the baryons. This however is not necessary with an operator like $\mathcal{O}_{d+9/2,B}$ as this is baryon number violating only.
+
+In non-perturbative models the dark asymmtery is reprocessed into the visible sector by electroweak sphalerons. This requires a new sector of mediators which 
+carry both $SU(2)_L$ and the global dark $U(1)_D$ symmetry. If the $U(1)_D$ symmetry in the mediator sector is anomalous under $SU(2)_L$ then it will be able 
+to transfer the asymmetry.
+
+\subsection{Low Scale Transfer Mechanism}
+In the perturbative transfer case mentioned above we have a dark phase transition at after the electroweak phase transition. This means we have to transfer the 
+asymmetry directly to the visible sector as there are no sphalerons available to reprocess. In this case we will need to use one of the higher order operators 
+discussed in section 1. The lowest order operator that is baryon number violating only (so that phase transitions can happen in this order) is the one involving 
+$\mathcal{O}_d u^c d^c d^c$ \cite{darko}. Using the dark sector described in the previous section this operator takes the form
+\beq
+    W_{int} = \frac{X^2 u^c d^c d^c}{\Lambda^2}
+\eeq
+The operator is quadratic in the dark matter state in order to make it stable.
+
+If the operator freezes out at a lower temperature than the electroweak phase transition, then the relative asymmetry created in the dark and visible sectors 
+will be \cite{darko} 
+\beq
+    \frac{B}{D} = \frac{23}{21}
+\eeq
+This calculation is done using standard methods described in \cite{asymm} 
+Then using the relation \ref{omegas} the dark matter mass is
+\beq
+    m_X = 5 \frac{B}{D} m_p \approx 5 \text{GeV}
+\eeq
+
+It remains to be shown that using the superpotential (\ref{superpot}) we can get a phase transition that is sufficiently first order to provide the required departure 
+from equilibrium. First we replace the $\mu$ 
+term in the superpotential with a term that generates the mass scale by singlet mediation.
+\beq
+    W_{dh} = \lambda S H H^c + \frac{\kappa}{3} S^3
+\eeq
+The potential then becomes
+\beq \begin{split}
+    V = \lambda^2|S|^2 (|H_0^c|^2 + |H_0|^2) + \lambda^2|H_0^c H_0|^2 + \frac{g_D^2}{8}( |H_0|^2 - |H_0|^2)^2 + m_{H_0}^2 |H_0|^2 + m_{H_0^c} |H_0^c|^2 \\
+    + m_S^2 |S|^2 + \kappa |S|^4 + (-\lambda \kappa H_0^c H_0 \bar{S}^2 - \lambda A_{\lambda} S H_0^c H_0 + \frac{\kappa}{3} S^3 + H.c.)
+\end{split} \eeq
+where the '0' subscripts denote the components of the Higgs fields that gain a non-zero vev.
+From here we will need to make some approximations to avoid having only numerical solutions. We assume that the vev of the singlet S is small so we can ignore 
+all higher order terms involing S, and we only consider the linear combination of the Higgs fields $\phi=\sqrt{|H|^2+|H^c|^2}$. Then using the fact that 
+$m_H^2 = m_{H^c}^2$ we can cancel all terms but two and get
+\beq
+    V = \frac{\lambda^2}{4} \phi^4 + m_H^2 \phi^2
+\eeq 
+The 1-loop finite temperature effective potential is,
+\beq
+    V_1(\phi, T) = \frac{1}{8} g_D^2 \phi^2 T^2 - \frac{1}{4\sqrt{2\pi}}g_D^3 \phi^3 T + ...
+\eeq
+Combining the zero-temperature piece $V(\phi,T) = V_0(\phi)+V_1(\phi,T) + ...$ gives us
+\beq
+    \frac{\sqrt{2}\langle \phi(T_c) \rangle}{T_c} = \frac{g_D^3}{2\pi \lambda^2}
+\eeq
+If lambda is small enough $\lambda^2 \leq g_D^3/2\pi$ then the phase transition will be first order and will fulfil the departure from equilibrium requirement in
+ the Sakharov criteria.
+
+
+
+\subsection{High Scale Transfer Mechanism}
+In the case where the dark phase transition happens at a higher temperature than the electroweak phase transition then electroweak sphalerons can transfer the 
+asymmetry to the visible sector. In order for this transfer process to work a messenger sector has to be added to the field content. This messenger sector is 
+shown in table \ref{messenger} \cite{darko}.
+\begin{table}[h]
+\centering
+\begin{tabular}{l | c | c | r} 
+    \label{messenger}
+         & $SU(2)_L$  &  $U(1)_Y$ & $U(1)_D$ \\
+    \hline
+    $L_M^{\pm}$ & 2 & $\pm 1/2$ & 1  \\
+    ${e_M^c}^{\pm}$  & 1 & $\mp 1$ &  -1  \\
+    $\bar{X}_{M}^i$ & 1 & 0 & -1  
+\end{tabular}
+\caption{Minimal dark messenger sector.}
+\end{table}
+This sector works in a similar manner to the electroweak sector or the dark sector in which a $U(1)$ symmetry becomes anomalous under $SU(2)$ but in this case the 
+messenger fields carry both $SU(2)_L$ and the dark quantum number $U(1)_D$. These messengers are called leptodarks in the litterature \cite{darko}. The messenger 
+sector now causes the electroweak sphalerons to violate $B+L+\frac{N_D}{N_g}D$ where $N_g$ is the number of standard model generations and $N_D$ is the number of 
+messenger electroweak doublets \cite{darko}.
+
+Because these 
+messenger fields are charged under $SU(2)_L$ they can contribute to measurements of electroweak observables. The precision observables that can be effected are 
+the Peskin-Takeuchi parameters S and T. Roughly speaking, S is proportional to the total number of weak doublets and T depends on isospin violation, such as the large 
+mass splitting between the b and t quarks\cite{ewparam}. The important thing is that if these new messenger fields caused a large change in S or T, then observations 
+would rule out a new sector containing $SU(2)_L$ fields. According to \cite{darko} the changes in these parameters are
+\beq
+    \Delta S \approx 0.11 \text{ , } \Delta T \approx 0
+\eeq
+which they also claim is within 95\% CL of observations \cite{obs1}.
+
+The ratio of the baryon to dark baryon asymmetry depends on a number of factors and in \cite{darko} is said to be
+\beq
+    \frac{B}{D} = \frac{33}{127}
+\eeq
+giving a mass of
+\beq
+    m_X = 5\frac{B}{D}m_p \approx 1 \text{ GeV}
+\eeq
+
+
+
+
+

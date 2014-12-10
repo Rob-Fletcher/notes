@@ -1,0 +1,14 @@
+*.pdf
+.DS_Store
+*.swo
+*.jpg
+*.png
+*.gif
+*.swp
+*.zip
+*.aux
+*.log
+*.gz
+*.pptx
+*.bbl
+*.blg

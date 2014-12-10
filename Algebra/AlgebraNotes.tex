@@ -1,0 +1,56 @@
+
+\documentclass{article}
+\usepackage{amssymb, amsmath}
+\numberwithin{equation}{section}
+\title{Algebra and Group Theory Notes}
+\author{Rob Roy Fletcher}
+
+
+%%%%%%%%%%%%%%%---- Macros ----%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%---- Document -----%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\section{Groups}
+\subsection{Orthogonal Group $O(n)$}
+$O(n)$ is a subgroup of the \textbf{General Linear Group}, $GL_{n}(\mathbb{R})$. Can be represented by matrices that preserve the length of vectors $<x,y>$.
+
+
+Some propositions about inner products:
+\begin{enumerate}
+\item
+    $<x,y>=<y.x>$
+\item
+    $<x,y+w>=<x,y>+<x,w>$
+\item
+    $<ax,y>=<x,ay>=a<x,y>$, for a some scalar.
+\item
+    $<x,x>\geq 0$
+\item
+    If $<x,y>=0$ ,$\forall x \in \mathbb{R}^{n} \rightarrow y=0$
+\end{enumerate}
+
+
+Some facts about determinants:
+\begin{equation}
+    AA^{T}=\mathbb{1}\Rightarrow det(AA^{T})=det(\mathbb{1})=1 = det(A)det(A^{T})
+\end{equation}
+and
+\begin{equation}
+    det(A)=det(A^{T})\Rightarrow det(A) = \pm 1
+\end{equation}
+Considering column vectors of an orthogonal matrix $A$, since $AA^{T}=\mathbb{1}
+\rightarrow <a_r, a_s>=\delta_{rs}$
+
+\subsection{Isometrty}
+An isometry is a distance preserving function $f$ from $\mathbb{R}^n$ to $\mathbb{R}^n$
+\begin{equation}
+    ||f(x) - f(y)||=||x-y||, \forall x,y\in \mathbb{R}^n
+\end{equation}
+Any element of $O(n)$ is an isometry but not all isometries are in $O(n)$. Translation is an isometry $T_y(x)=x+y$. This is not a linear map however, so it can't be in $O(n)$.
+
+
+\end{document}

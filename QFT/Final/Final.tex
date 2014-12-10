@@ -1,0 +1,364 @@
+\documentclass{article}
+\usepackage{amssymb, amsmath}
+\usepackage{slashed}
+\numberwithin{equation}{section}
+\title{QFT Final}
+\author{Rob Roy Fletcher}
+
+%%%********** Macros ********************
+
+\newcommand{\direq}[2]{\left(i \slashed{\partial}_{#1} - m_p  \right) #2}
+\newcommand{\px}{\psi(x)}
+\newcommand{\pxb}{\bar{\psi}(x)}
+
+\newcommand{\py}{\psi(y)}
+\newcommand{\pyb}{\bar{\psi}(y)}
+
+\newcommand{\pinx}{\psi_{in}(x)}
+\newcommand{\piny}{\psi_{in}(y)}
+\newcommand{\pinxb}{\bar{\psi}_{in}(x)}
+\newcommand{\pinyb}{\bar{\psi}_{in}(y)}
+
+\newcommand{\poutx}{\psi_{out}(x)}
+\newcommand{\pouty}{\psi_{out}(y)}
+\newcommand{\poutxb}{\bar{\psi}_{out}(x)}
+\newcommand{\poutyb}{\bar{\psi}_{out}(y)}
+
+\newcommand{\beq}[1]{\begin{equation} \begin{aligned} #1 \end{aligned} \end{equation}}
+
+\newcommand{\sr}{S_{ret}}
+\newcommand{\sa}{S_{adv}}
+
+\newcommand{\sqz}{\sqrt{Z}}
+
+\newcommand{\intdfx}{\int d^4 x}
+\newcommand{\intdtx}{\int d \vec{x}}
+\newcommand{\intdfy}{\int d^4 y}
+\newcommand{\intdty}{\int d \vec{y}}
+
+\newcommand{\bkt}[2]{\langle #1| #2  \rangle}
+\newcommand{\bout}{\beta_{out}}
+\newcommand{\ain}{\alpha_{in}}
+
+\newcommand{\brkt}[3]{\langle #1 | #2 | #3 \rangle}
+\newcommand{\bind}{b_{in}^{\dagger}(p,s)}
+\newcommand{\boutd}{b_{out}^{\dagger}(p,s)}
+\newcommand{\din}{d_{in}(p',s')}
+\newcommand{\dout}{d_{out}(p',s')}
+
+\newcommand{\ups}{U_{p,s}(x)}
+\newcommand{\vps}{V_{p',s'}(y)}
+\newcommand{\vpsx}{V_{p',s'}(x)}
+
+\newcommand{\dz}{\partial_{0}}
+\newcommand{\di}{\partial_{i}}
+\newcommand{\ldi}{\stackrel{\leftarrow}{\partial_{i}}}
+\newcommand{\ldz}{\stackrel{\leftarrow}{\partial_{0}}}
+\newcommand{\lds}[1]{\stackrel{\leftarrow}{\slashed{\partial}}_{#1}}
+\newcommand{\rds}[1]{\stackrel{\rightarrow}{\slashed{\partial}}_{#1}}
+
+\newcommand{\dzy}{\partial_{y^0}}
+\newcommand{\diy}{\partial_{y^i}}
+
+%%%%%%% Begin Document  %%%%%%%%%
+\begin{document}
+\maketitle
+
+\section{Problem 1}
+\subsection{1}
+Assume that a Dirac spinor field $\psi_{\alpha} \text{ , } \alpha = 1,2,3,4$ satisfies the interacting Dirac equation
+\beq{
+    \direq{x}{\px} = \tilde{j}(x) 
+}
+where
+\beq{
+    \tilde{j}(x) = j(x) - \delta m \px
+}
+and $j(x)$ is some, irrelevant, interaction current. Also, $m_p$ is the physical mass. Then, Define $\sr$ and $\sa$, that is the retarded and advanced
+Dirac Green's functions.
+
+We define the retarded Greens function as
+\beq{
+    \sr = -\Delta(x-y) \theta(x_0 - y_0)
+}
+with,
+\beq{
+    \Delta(x-y) = -i[\psi(t,x),\psi(t',y)].
+}
+$\sr$ then satisfies
+\beq{
+    \direq{}{\sr(x-y)} = \delta^{(4)}(x-y)
+}
+Similarly the advanced Dirac Green's function is defined as
+\beq{
+    \sa = -\Delta(x-y) \theta(y_0 - x_0)
+} 
+and also satisfies
+\beq{
+    \direq{}{\sa(x-y)} = \delta^{(4)}(x-y)
+}
+
+\subsection{}
+Using these, define $\pinx$ and $\poutx$, give their relationship to $\psi(x)$ and show that $\pinx$ and $\poutx$ satisfy the free Dirac equation. Expand in plane waves.
+
+We define $\pinx$ and $\poutx$ as,
+\beq{
+   \sqz \pinx = \px - \intdfy \sr(x-y) \tilde{j}(y) \\
+   \sqz \poutx = \px - \intdfy \sa(x-y) \tilde{j}(y) 
+}
+These are defined such that they are related to $\px$ as
+\beq{ \label{limits}
+    x_0 \rightarrow -\infty; \text{  } \px \rightarrow Z^{-1/2} \pinx \\
+    x_0 \rightarrow +\infty; \text{  } \px \rightarrow Z^{-1/2} \poutx
+}
+It is easy to see now that these in and out states satisfy the free Dirac equation.
+\beq{
+    \sqz \direq{x}{\pinx} &= \direq{x}{\px} - \intdfy \direq{x}{\sr} \tilde{j}(y) \\
+        &= \tilde{j}(x) - \intdfy \delta^{(4)}(x-y) \tilde{j}(y) = \tilde{j}(x) - \tilde{j}(x) \\
+        &=0
+}
+and similarly for the out state,
+\beq{
+    \direq{x}{\poutx} = 0
+}
+Because these satisfy the free Dirac equation they may be expanded in plane waves
+\beq{
+    \pinx = \int d \vec{k} \sum_{s} \left( b_{in}(k,s) \gamma^0 U_{k,s}(x) + d_{in}^{\dagger} (k,s) \gamma^0 V_{k,s}(x) \right)  \\
+    \poutx = \int d \vec{k} \sum_{s} \left( b_{in}(k,s) \gamma^0 U_{k,s}(x) + d_{in}^{\dagger} (k,s) \gamma^0 V_{k,s}(x) \right)  
+}
+Inverting these we get,
+\beq{ \label{ops}
+    b(k,s) = \intdtx \gamma^0 U^{\dagger}_{k,s}(x) \px \\
+    d(k,s) = \intdtx \pxb \gamma^0 V_{k,s}(x)
+}
+where,
+\beq{ \label{coef}
+    U_{k,s}(x) = \sqrt{\frac{m}{(2\pi)^3 E_k}} u(k,s) e^{-ikx} \\
+    V_{k,s}(x) = \sqrt{\frac{m}{(2\pi)^3 E_k}} v(k,s) e^{ikx}
+}
+\subsection{}
+Using these results, as well as the expressions for the plane waves and their coefficients derived previously on our notes, derive the "reduction formula" for
+\beq{
+    \bkt{\bout}{\ain}    
+}
+where,
+\beq{
+    |\ain \rangle &= b^{\dagger}_{in} (p,s) |0 \rangle \\
+    |\bout \rangle &= d^{\dagger}_{out}(p',s') |0 \rangle
+}
+That is, express $\bkt{\bout}{\ain}$ in terms of a vacuum expectation value of a time-ordered product of (interacting) Dirac fields. In doing this calculation
+assume $(p,s) \neq (p',s')$. Express the result both in x-space and in momentum space.
+
+Using our definitions above we start with,
+\beq{
+    \bkt{\bout}{\ain} = \brkt{\bout}{\bind}{0} \\
+    =\brkt{\bout}{\boutd}{0} + \brkt{\bout}{( \bind - \boutd  )}{0} \\
+    =\bkt{\bout - (p,s)}{0} + \brkt{\bout}{( \bind - \boutd  )}{0} 
+}
+The first term here we can remove. It is sometimes called a disconnected graph. Using the definition of $b_{}in(p,s)$ we can see that,
+\beq{
+    \bind = \intdtx \pinxb \gamma^0 U_{p,s}(x)
+}
+Plugging this in above,
+\beq{
+    \bkt{\bout}{\ain} = \brkt{\bout}{\intdtx (\pinxb - \poutxb) \gamma^0 \ups   }{0}
+}
+Now using the eq.\ref{limits} we can replace the in and out states with the interacting fields.
+\beq{
+    \bkt{\bout}{\ain} = \frac{1}{\sqz} \left( \lim_{x \to -\infty} - \lim_{x \to +\infty} \right) \brkt{\bout}{\intdtx  \pxb \gamma^0 \ups}{0}
+}
+We want to change the integral over 3-space to and integral over 4-space. We can do this using the identity:
+\beq{
+    \left( \lim_{x \to -\infty} - \lim_{x \to +\infty} \right) \intdtx f(x) = -\intdfx \dz [f(x)] 
+}
+Using this gives us,
+\beq{
+    \bkt{\bout}{\ain} = - \frac{1}{\sqz} \intdfx \dz [\brkt{\bout}{ \pxb \gamma^0 \ups }{0} ] \\
+    = - \frac{1}{\sqz} \intdfx [\brkt{\bout}{\left(   \dz \pxb \gamma^0 \ups +  \pxb \gamma^0 \dz \ups \right)}{0} ]
+}
+We can use the fact that $\ups$ solves the free Dirac equation to get rid of $\dz \ups$.
+\beq{
+    \direq{x}{\ups} \\
+    =(i \gamma^0 \dz - i \gamma^i \di - m_p) \ups = 0 \\
+    \Rightarrow \gamma^0 \dz \ups = -i( i \gamma^i \di + m_p)\ups
+}
+Plugging this in we have,
+\beq{
+    \bkt{\bout}{\ain} =- \frac{1}{\sqz} \intdfx [\brkt{\bout}{\left( 
+    \dz \pxb \gamma^0 \ups +  \pxb (i( -i \gamma^i \di - m_p)\ups)
+    \right)}{0} ] \\
+    =- \frac{i}{\sqz} \intdfx [\brkt{\bout}{\left( 
+    -i\gamma^0 \dz \pxb \ups +  \pxb ( -i \gamma^i \di - m_p)\ups
+    \right)}{0} ] \\
+}
+The second term above can be integrated by parts to get a surface term (which will be zero) and another term with the derivative acting on $\pxb$.
+\beq{
+    \bkt{\bout}{\ain} =- \frac{i}{\sqz} \intdfx [\brkt{\bout}{\left( 
+     \pxb (-i\gamma^0 \ldz) \ups +  \pxb ( i \gamma^i \ldi - m_p)\ups
+    \right)}{0} ]
+} 
+where $\ldz$ and $\ldi$ are derivatives acting to the left. Now combining these two terms we get,
+\beq{
+    \bkt{\bout}{\ain} &=- \frac{i}{\sqz} \intdfx [\brkt{\bout}{\left( 
+     \pxb (-i \lds{} - m_p) \ups
+    \right)}{0} ] \\
+    &= - \frac{i}{\sqz} \intdfx \brkt{\bout}{\pxb}{0} (-i \lds{x} - m_p) \ups
+} 
+
+Now we just need to reduce the out state. Working only on $\brkt{\bout}{\pxb}{0} $ for now, we use the same procedure as above on the out state.
+\beq{
+    \brkt{\bout}{\pxb}{0} &= \brkt{0}{\dout \pxb}{0} \\
+    &= \brkt{0}{\pxb \din}{0} + \brkt{0}{(\dout \pxb - \pxb \din)}{0}
+}
+The annihilation operator annihilates the first term, and using eq.\ref{ops} gives,
+\beq{
+    \brkt{\bout}{\pxb}{0} &= \brkt{0}{\intdty \poutyb \gamma^0 \vps \pxb - \intdty \pxb \pinyb \gamma^0 \vps}{0} \\
+    &= \frac{1}{\sqz} \brkt{0}{\left[ \lim_{y_0 \to +\infty} \intdty \pyb \pxb \gamma^0 \vps - \lim_{y_0 \to -\infty} \intdty \pxb \pyb \gamma^0 \vps     \right]}{0}
+}
+In order to preserve Lorentz covariance we must time order the products of fields.
+\beq{
+    \brkt{\bout}{\pxb}{0} &=\frac{1}{\sqz}  \brkt{0}{\left[ \lim_{y_0 \to +\infty} \intdty T(\pyb \pxb)\gamma^0 \vps - \lim_{y_0 \to -\infty} \intdty T(\pxb \pyb)\gamma^0 \vps \right]}{0} \\
+    &=\frac{1}{\sqz} \brkt{0}{\left( \lim_{y_0 \to +\infty} - \lim_{y_0 \to -\infty} \right) \intdty T(\pyb \pxb) \gamma^0\vps }{0}
+}
+As before, we change the integral to an integral over 4-space.
+\beq{
+    &=\frac{1}{\sqz} \brkt{0}{ \intdfy \dzy \left[T(\pyb \pxb) \vps \right] }{0} \\
+    &=\frac{1}{\sqz} \brkt{0}{ \intdfy  \left[ \gamma^0 \dzy T(\pyb \pxb) \vps + T(\pyb \pxb) \gamma^0 \dzy \vps \right]  }{0} \\
+} 
+Similar to above we again use the fact that the plane wave expansion coefficients solve the free Dirac equation.
+\beq{
+    (i \gamma^0 \dz - i \gamma^i \di - m_p) \vps = 0 \\
+    \Rightarrow \gamma^0 \dz \vps = -i(i \gamma^i \di + m_p)\vps
+}
+Substituting in gives, 
+\beq{
+    &=\frac{1}{\sqz} \brkt{0}{ \intdfy  \left[ \gamma^0 \dzy T(\pyb \pxb) \vps + T(\pyb \pxb) (-i(i \gamma^i \di + m_p) ) \vps \right]  }{0} \\
+}
+Then as before we factor out an $i$ and integrate by parts,
+\beq{
+   \brkt{\bout}{\pxb}{0} &=\frac{i}{\sqz} \brkt{0}{ \intdfy  \left[ -i \gamma^0 \dzy T(\pyb \pxb) \vps + T(\pyb \pxb) ((i \gamma^i \ldi - m_p) ) \vps \right]  }{0} \\
+    &= \frac{i}{\sqz} \intdfy \brkt{0}{T(\pyb \pxb)}{0}(-i \lds{y} - m_p) \vps
+}
+Now we just plug this in above to get,
+\beq{
+    =\boxed{ \left(- \frac{i}{\sqz}\right) \left(\frac{i}{\sqz}\right) \intdfx d^4y \brkt{0}{T(\pyb \pxb)}{0}(-i \lds{x} - m_p) (-i \lds{y} - m_p) \ups \vps}
+}
+To write this in momentum space, following how it was derived in the notes, we integrate $\stackrel{\leftarrow}{\slashed{\partial}_x}$ and $\stackrel{\leftarrow}{\slashed{\partial}_y}$ by parts to let them act on $\ups$ and $\vps$.
+\beq{
+    \left(- \frac{i}{\sqz}\right) \left(\frac{i}{\sqz}\right) \intdfx d^4y \brkt{0}{T(\pyb \pxb)}{0}(i \rds{x} - m_p) (i \rds{y} - m_p) \ups \vps
+}
+Recalling the definitions eq \ref{coef} we can act these derivatives. For now I will call the parts that do not depend on x or y, $A$.
+\beq{
+    (i \rds{x} -m_p)\ups = (i \rds{x} - m_p) A e^{-ipx} = (i \gamma^\mu(-ip_\mu) A e^{-ipx} \\
+    = (\slashed{p} - m_p) \ups
+}
+And similarly,
+\beq{
+    (i \rds{y} - m_p)\vps = (- \slashed{p}' - m_p) \vps
+}
+Now we have,
+\beq{
+    \left(- \frac{i}{\sqz}\right) \left(\frac{i}{\sqz}\right) \intdfx d^4y \brkt{0}{T(\pyb \pxb)}{0}(\slashed{p} - m_p) (-\slashed{p}' - m_p) \ups \vps
+}
+Define,
+\beq{
+    (2\pi)^4 \delta^4(p-p') G^{(2)}(p,p') \equiv 
+    \intdfx \intdfy \brkt{0}{T(\pyb \pxb)}{0} u(p,s)e^{-ipx} v(p',s') e^{ip'y} 
+}
+Then putting this in a form similar to what we had in class,
+\beq{
+    &\bkt{\bout}{ain} = \\
+    &\boxed{(2\pi)^4 \delta^4(p-p') \sqrt{\frac{m}{(2\pi)^3 E_p}} \sqrt{\frac{m}{(2\pi)^3 E_{p'}}} G^{(2)}(p,p') (-i) \left( \frac{\slashed{p}-m_p}{\sqz}  \right)
+    (i)\left(  \frac{-\slashed{p}'-m_p}{\sqz} \right) }
+}
+\section{Problem 2}
+%%%%%%%%%%%% problem 2 Macros  %%%%%%%%%%%%%%%%%%%
+
+\newcommand{\intkk}{\int \frac{d \vec{k} d \vec{k'}}            {(2\pi)^3 2 \sqrt{\omega_k \omega_{k'}}}}
+\newcommand{\intk}{\int \frac{d \vec{k}}{(2\pi)^3 2 \omega_k}}
+
+\newcommand{\ak}{\hat{a}(k)}
+\newcommand{\akp}{\hat{a}(k')}
+\newcommand{\akd}{\hat{a}(k)^{\dagger}}
+\newcommand{\akpd}{\hat{a}(k')^{\dagger}}
+
+\newcommand{\phix}{\hat{\phi}(x)}
+\newcommand{\phiy}{\hat{\phi}(y)}
+
+\newcommand{\phinx}{\phi_{in}(x)}
+\newcommand{\phiny}{\phi_{in}(y)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{}
+Compute an explicit expression for 
+\beq{
+    \Delta (x-y) = -i [\phix, \phiy]
+}
+for a non-interacting real scalar field $\phi(x)$. Show that $\Delta (x-y)$ is a Lorentz scalar.
+
+Starting with the commutator,
+\beq{
+    \left[ \phix,\phiy \right] &= \intkk \left[ \ak e^{-ikx} + \akd e^{ikx}, \akp e^{-ik'y} + \akpd e^{ik'y}  \right] \\
+    &= \intkk \left( e^{-ikx}e^{ik'y} [\ak,\akpd] + e^{ikx}e^{-ik'y}[\akd,\akp]       \right)
+}
+Now we can use the expressions for the annihilation and creation operators commutators,
+\beq{
+    \\ [\ak,\akpd] &= \delta^3(\vec{k} - \vec{k'}) \\
+    [\akd,\akp] &= -\delta^3(\vec{k} - \vec{k'})
+}
+Plugging in and factoring out the delta function,
+\beq{
+    = \intkk \left(   e^{-ikx}e^{ik'y} - e^{ikx}e^{-ik'y}  \right) \delta^3(\vec{k} - \vec{k'})
+    = \intk \left( e^{-ik(x-y)} - e^{ik(x-y)}       \right) \hat{1\!\!1}
+}
+So we have,
+\beq{ \label{prop}
+    \boxed{\Delta(x-y) = -i \intk \left( e^{-ik(x-y)} - e^{ik(x-y)}       \right)\hat{1\!\!1}}
+}
+The two exponentials in the integral are obviously Lorentz scalars because $k \cdot (x - y)$ is a Lorentz scalar. $\Delta(x-y)$ is then a Lorentz scalar as long 
+as we adopt the right normalization. To keep states Lorentz invariant we adopt the normalization $|p \rangle = \sqrt{2 E_p} a_p^{\dagger} |0 \rangle$. So we can see
+that to keep Lorentz invariance we just need to divide by $2 E_p$. From this we can see that $\Delta(x-y)$ is also a Lorentz scalar since everything in it is a Lorentz
+scalar and it is normalized correctly.
+
+\subsection{}
+Now let $\phi(x)$ be an interacting scalar fields and $\phi_{in}(x)$ and $\phi_{out}(x)$ the associated free scalars. Prove that
+\beq{
+    \brkt{0}{[ \phinx, \phiny  ]}{0} = i \Delta(x-y)
+}
+
+First lets look at $\brkt{0}{ \phinx \phiny }{0}$,
+\beq{
+    \brkt{0}{\phinx \phiny}{0} &= \brkt{0}{\int dk dk' (\ak f_k(x) + \akd f_k^*(x) )( \akp f_{k'}(y) + \akpd f_{k'}^*(y)   ) }{0} \\
+    &= \brkt{0}{\int dk dk'   
+    [ f_k(x) f_{k'}(y) \ak \akp + f_k^*(x) f_{k'}^*(y) \akd \akpd \\
+     &    + f_k(x) f_{k'}^*(y) \ak \akpd + f_k^*(x) f_{k'}(y) \akd \akp ]
+    }{0}
+} 
+where the $a$'s and $f$'s are the operators and coefficients from the plane wave expansion. This will be the same for either in or out states so I have dropped the in (out) labels. Applying the annihilation operators to the left and the right we can see that 3 of the terms are annihilated away. We are left with,
+\beq{
+    \int dk dk' f_k(x) f_{k'}^*(y) \brkt{0}{\ak \akpd}{0}
+}
+We can turn the product of operators in to a commutator by subtracting off the product in the other order $ \brkt{0}{\akpd \ak}{0} = 0$
+\beq{
+    \int dk dk' f_k(x) f_{k'}^*(y) \brkt{0}{[\ak, \akpd]}{0}
+}
+We know this commutator is $[\ak, \akpd] = \delta^3(k-k')$.
+\beq{
+    =\int dk dk' f_k(x) f_{k'}^*(y) \delta^3(k-k') \bkt{0}{0} = \int dk f_k(x) f_k^*(y) \\
+    = \intk e^{-ik(x-y)}
+}
+Going through the same processes for $\brkt{0}{\phiny \phinx}{0}$ gets,
+\beq{
+    \intk e^{-ik(y-x)} = \intk e^{ik(x-y)}
+}
+Now using these in the commutator we can see that we just subtract these two
+\beq{
+    \brkt{0}{[\phinx, \phiny]}{0} = \intk \left( e^{-ik(x-y)} - e^{ik(x-y} \right)
+}
+which just $i$ times our expression for the propagator eq \ref{prop}. Therefore,
+\beq{
+    \boxed{\brkt{0}{[\phinx, \phiny]}{0} = i \Delta(x-y) }.
+}
+
+\end{document}
+

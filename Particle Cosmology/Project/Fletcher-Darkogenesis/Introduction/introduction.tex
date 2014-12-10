@@ -1,0 +1,249 @@
+%%%% Introduction
+% This file is called by PC_paper.tex
+%
+
+\section{Introduction}
+  
+\subsection{Dark Matter} %%%%  What is dark matter. Evidence for it.
+  During the first half of the 20th century, several observations were made that suggested we were not seeing large amounts of matter in the cosmos.
+Begining first with Fritz Zwicky in the 1930's, who using the virial Theorem, found that the luminous matter in the Coma Cluster did not seem to account 
+for all of the mass by a large amount. He called this missing mass, Dark Matter. Later in the 1950's, Vera Rubin, observing the speed of stars near the edges of
+galaxies found them to contradict what we would expect from Newtons laws using a galaxy mass consisting of all of the luminous matter. Since Zwicky named these particles
+many measurements have been done both confirming the existence of clumps of dark matter as well as putting some constraints on the properties of it.
+
+Experiments such as WMAP have been very successful at measuring dark matter properties. Measurements of the fractional density have been made at $\Omega_{DM} \approx 0.3$ 
+\cite{wmap} which is 5 times the baryonic fractional density. At around 23\% of the content of the universe, dark matter is the dominant gravitationally attractive component. Although 
+we are not sure what dark matter actually is, there are things that it cannot be. We know that it cannot consist of baryons. One way to determine this is by looking at 
+the baryon-photon ratio needed for big bang nucleosynthesis. The amount of light elements created depends strongly on this ratio because hydrogen is ionized by photons 
+$H + \gamma \leftrightarrow p + e^-$. We can see this by looking at the Saha equation
+\beq
+    \frac{n_H}{n_p n_e} = \left( \frac{m_{e} k_{B} T}{2 \pi \hbar^2}\right)^{-3/2}  e^{\left( \frac{Q}{k_{B} T}  \right)}
+\eeq 
+where Q is the binding energy of hydrogen. We can then define the fractional ionization as
+\beq
+    X = \frac{n_p}{n_p + n_H}
+\eeq
+The Saha equation becomes
+\beq
+    \frac{1-X}{X} = n_p\left( \frac{m_e k_B T}{2\pi \hbar^2}   \right)^{-3/2} e^{\left( \frac{Q}{k_B T}  \right)}
+\eeq
+Now we can define the baryon-photon ratio $ \eta \equiv n_p / n_\gamma$ and since $n_\gamma$ is known to be
+\beq
+    n_\gamma = 0.243\left(  \frac{k_b T}{\hbar c} \right)^3
+\eeq
+we can use this to write the Saha equation in terms of $\eta$
+\beq
+    \frac{1-X}{X} = 3.84 \eta \left( \frac{m_e k_B T}{2\pi \hbar^2}   \right)^{3/2} e^{\left( \frac{Q}{k_B T}  \right)}
+\eeq
+So we can see that if $\eta$ is changed because of baryonic dark matter, the conditions for hydrogen to form may not be present in the early universe.
+
+
+It is also possible to constrain the mass of the dark matter particles with observation. The actual mass lower bound on dark matter depends on how it was created. 
+The Planck experiment placed a lower bound on the order of MeV for cold thermal dark matter \cite{planck}. Lower bounds can be obtained by looking at the scales at
+which dark matter clumps together. If dark matter is light then when it freezes out it will be moving more quickly than if it were heavy. This would cause the scale
+that you see clumping at to increase. We can also say with quite a bit of certainty that dark matter must be electrically neutral. If it were charged it could couple
+ to photons. This would change several observations including altering the cosmic microwave background. By observing neutron stars severe limits have also been placed 
+on the self-interaction cross-section of certain types of dark matter. This limit is currently $\sigma_{self} /m = 2 \times 10^{-24} cm^2/GeV$ \cite{selfint}.
+
+There are many theories on what dark matter actually is. They range from theories of particles that do not interact with the standard model particles, to  
+ theories of primordial black holes. One of the most common is that of the weakly interacting massive particle or WIMP. If we consider a particle species that 
+freezes out of the plasma while non-relativistic, we calculate its abundance using the Boltzman equation
+\beq
+    \frac{dn}{dt}+ 3Hn \langle \sigma v \rangle (n^2-n^2_{eq}) = C
+\eeq
+An approximate solution to this equation in terms of the number density of photons is
+\beq
+    n \sim \frac{T^3 G^{1/2}}{\sigma_0 m}
+\eeq
+Since the particle we are considering is non-relativistic its density is just $\rho = m n$. Dividing by the critical density to get the fractional density we get
+\beq
+    \Omega = \frac{\rho}{\rho_{cr}} = \frac{T^3 G^{3/2}}{\sigma_0 H_0^2}
+\eeq
+Now using $G=1/ M_p^2$ and the photon number density $ n_\gamma \sim T^3 \approx 10^{-39} GeV^3$ we can rewrite this as
+\beq
+   \Omega \sim \frac{n_\gamma}{\sigma_0 M_p^3 H_0^2} 
+\eeq
+evaluating the constants we get a fractional density of $\Omega \sim 1/ (\sigma_0 10^9 GeV^2) $. Using the fact that the weak cross-section is 
+$\sim 10^{-9} GeV^{-2}$ we can see that $\Omega$ for a weakly interacting particle is $\sim 1$. This is what is known as the WIMP Miracle or the 
+WIMP Coincidence. This suggests that the dark matter particles may interact weakly and that new physics may appear at colliders at the weak scale ($\sim 1 \text{ } TeV$).
+  
+\subsection{Asymmetric Dark Matter}
+
+One big problem in modern physics is the baryon asymmetry in the observable universe. When we look at the universe we see only baryons and not anti-baryons. Both the 
+standard model of particle physics and general relativity do not offer an explanation for why this asymmetry exists. Many theories exist that attempt to explain this
+in very different of ways. Asymmetric dark matter is based on the observation that the fractional densities of dark matter and baryonic matter are so close.
+\beq \label{omegas}
+    \Omega_DM \approx 5 \Omega_B
+\eeq
+%%%%%%%%%%%%%%%%%%----begin calculation -----%%%%%%%%%%%%%%%%%%%%
+This suggests that the dark and visible sector asymmetries may be related. If we assume that dark matter has a similar asymmetry in some dark analogue of baryon 
+number then unless the asymmetry in both sectors is generated through the same 
+mechanism, there is no reason for the densities to be within the same order of magnitude. Although this could just be coincidence, there are some compelling reasons
+to consider this including that this theory may be easily embedded into supersymmetric theories such as the (n)MSSM and direct detection through collider experiments is 
+possible. It is possible to calculate the relic density of asymmetric dark matter by using standard techniques involving the Boltzmann equation and changing these slightly 
+to account for the asymmetry. Following \cite{relic}, start with the Boltzmann equations for a dark matter species $\chi$ that is not its own anti-particle. It is also 
+assumed that only $\chi \chib$ pairs are able to annihilate into standard model particles and that $\chi \chi$ and $\chi \chib $ cannot. 
+\beq \begin{split}
+    \frac{d n_{\chi}}{dt} + 3H n_{\chi} = - \langle \sigma \nu \rangle (n_\chi n_{\chib} - n_{\chi ,eq} n_{\chib ,eq}) \\
+    \frac{d n_{\chib}}{dt} + 3H n_{\chib} = - \langle \sigma \nu \rangle (n_\chi n_{\chib} - n_{\chi,eq} n_{\chib,eq}) \\
+\end{split} \eeq
+For the epoch where radiation dominated we have $\rho_{rad} \propto T^4$ and is related to the Hubble parameter by $H^2 \propto \rho_{rad}$. Written with the constants in terms 
+of the reduced Planck mass
+\beq
+    H = \frac{\pi T^2}{M_{pl}} \sqrt{\frac{g^*}{90}} 
+\eeq 
+$g^*$ here is the number of massless degrees of freedom. Considering only the case where the dark matter was non-relativistic when they froze out the number densities are
+\beq \begin{split} \label{nequil}
+   n_{\chi,eq} = g_{\chi}\left(\frac{m_\chi T}{2\pi}\right)^{3/2} e^{\frac{-m_\chi+\mu_\chi}{T}}   \\
+   n_{\chib,eq} = g_{\chi}\left(\frac{m_\chi T}{2\pi}\right)^{3/2} e^{\frac{-m_\chi-\mu_\chi}{T}}   \\
+\end{split}\eeq
+where $m_chi$ is the mass of the dark matter particle and we have used that in equilibrium the chemical potentials of the particle and anti-particle are equal and opposite. 
+The dark matter particles will fall out of equilibrium when the temperature of the universe drops below their mass. If their mass is always larger than their 
+chemical potential, the exponential in eq.(\ref{nequil}) will always be negative and the number densities for each will decrease exponentially. Eventually as $H$ gets 
+large the particles density will be some so low that they will not interact. This will cause the number densities to approach a constant.
+
+It is common to write the number densities in terms of the dimensionless quantities $Y_\chi \equiv n_\chi / s$ and $x \equiv m_\chi / T$, with s the entropy density.
+\beq
+    s = \frac{2\pi^2}{45}g^* T^3
+\eeq 
+Now we can use these definitions to rewrite the Boltzmann equations in terms of $Y$ and $x$. An easy way to perform this substitution is to rewrite the first two terms 
+recognizing that $H = \dot{a}/a$ and that the first two terms are then the result of a chain rule.
+\beq 
+    a^{-3} \frac{d(n_\chi a^3)}{dt} = \langle \sigma \nu \rangle(n_\chi n_{\chib} - n_{\chi ,eq} n_{\chib ,eq}) \\
+\eeq
+then substituting and simplifying,
+\beq
+    \frac{dY_\chi}{dt} s = \langle \sigma \nu \rangle s^2(Y_\chi Y_{\chib} - Y_{\chi ,eq} Y_{\chib ,eq}) \\
+\eeq
+Using the chain rule to go from x to t, $\frac{dx}{dt} = Hx$ and collecting all of the constants we get
+\beq \label{yboltz}
+    \frac{dY_\chi}{dx} = - \frac{\lambda \langle \sigma \nu \rangle}{x^2}(Y_\chi Y_{\chib} - Y_{\chi ,eq} Y_{\chib ,eq})
+\eeq
+where,
+\beq
+    \lambda = \frac{4\pi}{\sqrt{90}} m_\chi \pmass \sqrt{g_*}
+\eeq
+Subtracting the anti-particle equation from the particle one we get,
+\beq
+    \frac{dY_\chi}{dx} - \frac{dY_{\chib}}{dx} = 0
+\eeq
+This can be integrated to get
+\beq
+    Y_\chi - Y_{\chib} = C
+\eeq
+where C is a constant. We can now substitute this into the Boltzmann equations,
+\beq \begin{split}
+    \frac{dY_\chi}{dx} = - \frac{\lambda \langle \sigma \nu \rangle}{x^2}(Y_\chi^2 - CY_\chi -Y_{\chi ,eq} Y_{\chib ,eq})  \\
+    \frac{dY_{\chib}}{dx} = - \frac{\lambda \langle \sigma \nu \rangle}{x^2}(Y_{\chib}^2 +CY_{\chib} - Y_{\chi ,eq} Y_{\chib ,eq})
+\end{split} \eeq
+These equations can be solved numerically or with a semi-analytic solution which follows. Again following the method in \cite{relic} we first introduce the 
+quantity $\Delta_{\chib} = Y_{\chib} - Y_{\chib,eq}$. Using the Boltzmann equation we have for $Y_{\chib}$, we can see how $\Delta_{\chib}$ evolves in time.
+\beq \begin{split} \label{deltaboltz}
+    \frac{d \Delta_{\chib}}{dx} = \frac{d Y_{\chib}}{dx} - \frac{d Y_{\chib, eq}}{dx} \\
+    \frac{d \Delta_{\chib}}{dx} = -\frac{d Y_{\chib, eq} }{dx} - \frac{\lambda \langle \sigma \nu \rangle}{x^2}[\Delta_{\chib}(\Delta_{\chib} + 2Y_{\chib,eq}) + C\Delta_{\chib}]
+\end{split} \eeq 
+If we consider high temperatures, then the value of $Y_{\chib}$ is very close to $Y_{\chib,eq}$ and so $\Delta_{\chib}$ is small. If the temperature is not near the 
+freeze-out point then $d \Delta_{\chib} / dx$ is also small. Ignoring small terms, the Boltzmann equation becomes
+\beq \label{appboltz}
+    \frac{d Y_{\chib,eq}}{dx} =- \frac{\lambda \langle \sigma \nu \rangle}{x^2}(2 \Delta_{\chib} Y_{\chib,eq} + C \Delta_{\chib})
+\eeq
+The Boltzmann equation is constructed so that the right hand side vanishes in equilibrium as is obvious from eq.\ref{yboltz} when $Y_{\chib} = Y_{\chib,eq}$. This implies 
+that $Y_{\chib}^2 +CY_{\chib} - Y_{\chi ,eq} Y_{\chib ,eq} = 0$ as well. The solution to this equation is
+\beq
+    Y_{\chib,eq} = -\frac{C \pm \sqrt{C^2+4P}}{2}
+\eeq   
+Where $P = Y_{\chi,eq}Y_{\chib,eq}$. We should take the + solution here as the - would give a negative value for $Y_{\chib,eq}$. If you plug this solution for $Y_{\chib,eq}$ 
+back into eq.\ref{appboltz} you can get an expression for $\Delta_{\chib}$. This would allow you to find the freeze out temperature of the anti-particles since the particles 
+will drop out of equilibrium approximately when $\Delta_{\chib} \sim Y_{\chib,eq}$.
+
+Now turning to the case where the temperature is low enough that we can ignore the $Y_{\chib,eq}$ term in eq.\ref{deltaboltz}. This equation then becomes
+\beq
+    \frac{d \Delta_{\chib}}{dx} = -\frac{d Y_{\chib, eq} }{dx} - \frac{\lambda \langle \sigma \nu \rangle}{x^2}[\Delta_{\chib}^2 + C\Delta_{\chib}]
+\eeq
+If we assume that $\Delta_{\chib}$ around the freeze out temperature is much greater than $\Delta_{\chib}$ at late times (low temperature), then we can neglect 
+$Y_{\chib,eq}$ terms and integrate 
+this equation from the freeze-out time $x_f$ to $\infty$. In \cite{relic} they arrive at
+\beq
+    Y_{\chib}(x\rightarrow \infty) = \frac{C}{\text{exp}(C \lambda \int \langle \sigma \nu \rangle x^{-2} dx) -1}
+\eeq
+Using the non-relativistic expansion of $\langle \sigma \nu \rangle = a + 6 b x^-1 + \mathcal{O}(x^-2)$ the integral above becomes
+\beq
+    \int_{x_f}^{\infty} (a + 6bx^{-1})x^{-2} dx = ax^{-1} +3 bx^{-2}\big|_{x_f}^{\infty} = ax_f^{-1}+3bx_f^{-2}
+\eeq
+If we now plug this in and use our expression for $\lambda$ this becomes
+\beq
+    Y_{\chib}(x \rightarrow \infty) = \frac{C}{\text{exp}\left[ C \left(\frac{4\pi}{\sqrt{90}}\right) m_{\chib} \pmass \sqrt{g_*} (ax_f^{-1}+3bx_f^{-2})  \right] -1   }
+\eeq
+The same procedure may be used for $\chi$
+\beq
+    Y_{\chi}(x \rightarrow \infty) = \frac{C}{1-\text{exp}\left[ -C \left(\frac{4\pi}{\sqrt{90}}\right) m_{\chib} \pmass \sqrt{g_*} (ax_f^{-1}+3bx_f^{-2})  \right]   }
+\eeq
+Now to write these in terms of densities.
+\beq
+    \Omega_\chi = \frac{\rho_\chi}{\rho_{cr}} = \frac{m_\chi n_\chi}{\rho_{cr}}
+\eeq
+Where we have used that the dark matter is non-relativistic at freeze-out. Substituting our expression for $Y$
+\beq
+    \Omega_\chi = \frac{m_\chi s Y_\chi(x \rightarrow \infty)}{\rho_{cr}}
+\eeq
+And finally, summing the densities for the particle and anti-particle
+\beq
+    \Omega_{DM} = \frac{s m_\chi [Y_\chi (x \rightarrow \infty) + Y_{\chib} (x \rightarrow \infty)]}{\rho_{cr}}
+\eeq
+
+
+The observed baryon asymmetry developed some time in 
+the early universe as an excess of baryons versus anti-baryons. This is commonly written in terms of the entropy density
+\beq
+    \eta(B) \equiv \frac{n_B-n_{\bar{B}}}{s}
+\eeq
+After all of the anti-baryons annihilate away the remaining baryons will make up all of the visible matter in the universe. Most asymmetric dark matter models require
+the dark matter mass to be in the 1-15 GeV range, though some models are higher than this \cite{review}. Several experiments such as CoGeNT\cite{cogent} and CRESST\cite{cresst}  
+suggest that dark matter is within this range.
+
+Since visual matter is made up of a relatively complicated gauge group and we are trying to connect the dark matter and visible matter asymmetry, it makes sense that 
+the dark matter sector could possibly also have a complicated gauge group containing many particles other than what makes up todays dark matter. An example of this would 
+be something like the MSSM where the lightest stable particle would be responsible for the hidden particles. Even though a complicated gauge structure is not required, 
+asymmetric dark matter models do need to have a conserved dark quantum number and an interaction that is strong enough to annihilate away all of the anti-dark number 
+particles. Coming along with a complicated gauge structure would be additional, not necessarily stable, particles and even the possibility of dark atoms or nuclei. 
+
+In order develop an asymmetry in an X-particle number there are certain criteria that need to be fulfilled known as the Sakharov Conditions. There must be
+\begin{itemize}
+    \item Departure from equilibrium 
+    \item C and CP violation
+    \item X-number violation
+\end{itemize}
+For our purposes we will refer to the X quantum number in the dark sector 'as dark baryon number' (hinting at the relationship between the dark and visible sectors) and 
+denote it as $B_D$. And following common notations in the literature we will refer to the visible sector baryon number as $B_V$.  
+In general there are four possibilities for the initial asymmetry generation:
+\begin{itemize}
+    \item a linear combination of $B_V$ and $B_D$ is preserved and a linearly independent combination is broken. For example $B_V - B_D$ is preserved but $B_V+B_D$ is broken.
+    \item $B_V$ is broken, but $B_D$ is not.
+    \item $B_D$ is broken, but $B_V$ is not.
+    \item $B_D$ and $B_V$ are broken.
+\end{itemize} 
+Although some models of asymmetric dark matter concentrate only on the transfer mechanism the generation of the initial asymmetry can be important as well. There are many 
+ways to generate the asymmetry, examples of the most common being out-of-equilibrium decays, Affleck-Dine mechanism, assymmetric freeze-out and first order phase transitions.
+We will focus on the generating mechanism being the bubble nucleation during a first order phase transition.
+
+The mechanisms to transfer the generated asymmetry to the visible sector are just as diverse as the asymmetry generating mechanisms. Mirror dark matter is a model in 
+which the gauge structure in the visible sector is isomorphic to the dark sector. Although the mirror sector has identical microphysics the physics on cosmological 
+scales can be quite different. Models that fall under the catagory of 'pangenesis' use the first type of asymmetry generation listed above with the conserved global 
+baryon number being $B_{con} = (B-L)_V-B_D$ where $B-L$ is the visible baryon minus lepton number that is conserved at late times in the universe. This asymmetry 
+generation is accomplished through the Affleck-Dine mechanism. Darkogenesis is a model using a first order phase transition in the dark sector that happens either 
+above or below the electroweak phase transition causing the asymmetry transfer to be accomplished by either electroweak sphalerons or directly into visible baryons, 
+respectively. We will focus on the Darkogenesis model here.
+
+
+% Relationship between DM and VM relic densities -> same mechanism for baryogenesis?
+% -Motivate this. 
+% -Conditions for shared asymmetry
+%    *Sakharov conditions
+% -Various Models overview.
+
+
+
+
+%----------------------------------------------
+%  End of Introduction sub document
+%----------------------------------------------

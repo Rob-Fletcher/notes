@@ -1,0 +1,350 @@
+\documentclass{article}
+\usepackage{amssymb, amsmath}
+\numberwithin{equation}{section}
+\title{QFT Midterm}
+\author{Rob Roy Fletcher}
+
+%%%%%%%%----  Macros ----%%%%%%%%%%%%%%%
+\newcommand{\Lagr}{\mathcal{L}}  %lagrangian
+\newcommand{\dmu}{\partial_{\mu}} 
+\newcommand{\dnu}{\partial_{\nu}}
+\newcommand{\Dmu}{\partial^{\mu}}
+\newcommand{\Dnu}{\partial^{\nu}} 
+\newcommand{\dxa}{\partial_{x_a}} 
+\newcommand{\dya}{\partial_{y_a}} 
+\newcommand{\dxb}{\partial_{x_b}}
+\newcommand{\dyb}{\partial_{y_b}}
+\newcommand{\dz} {\partial_0}
+\newcommand{\Dz} {\partial^0}
+
+\newcommand{\ddl}[1]{\frac{\partial \Lagr}{\partial(\partial_{#1} \phi)}}
+\newcommand{\cddl}[1]{\frac{\partial \Lagr}{\partial(\partial_{#1} \phi^*)}}
+\newcommand{\forint}{\int \frac{d^3p}{(2\pi)^3} e^{i\vec{p} \cdot \vec{x}}}
+\newcommand{\dpint}{\int \frac{d^3p}{(2\pi)^3}}
+
+\newcommand{\ddf}{\delta^3(x-y)}
+
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+
+%%%%%%%---- Begin Document ----%%%%%%%%%%
+\begin{document}
+\maketitle
+%%%%%%----- Classical ------%%%%%%%%%%%%%
+\section{Classical Complex Scalar Field}
+Using the canonical procedure, fully quantize the complex scalar field. I begin with the classical theory.
+\subsection{Lagrangian}
+A free scalar field has Lagrangian,
+\beq \label{sl}
+    \Lagr = (\partial_\mu \phi)^2 -m^2|\phi|^2 
+\eeq
+For a complex field this may be written explicitly in terms of $\phi$ and $\phi^*$ as
+\beq \label{csl}
+    \Lagr = \Dmu \phi^* \dmu \phi - m^2 \phi^* \phi
+\eeq
+We could also treat this field as two real fields $\phi(x) = \phi_1 + i \phi_2$, but I will not do that here.
+
+%%%%%------ Eq of Motion -------%%%%%%%%%%
+\subsection{Equation of Motion}
+Now using the normal procedure we vary the action to get the equation of motion.
+\beq \begin{split}
+    &\delta S = \int d^4 x \left\{ \frac{\partial \Lagr}{\partial phi} \delta \phi + \ddl{\mu} \delta(\dmu \phi) \right\} \\
+    &= \int d^4 x \left\{ \frac{\partial \Lagr}{\partial phi}\delta \phi-\dmu \left( \ddl{\mu}\right)\delta\phi+\dmu\left(\ddl{\mu} \delta\phi\right) \right\}=0
+\end{split} \eeq
+The last term here is a total derivative and so becomes a surface term. If we consider only deviations in which the endpoints are fixed then $\delta \phi$ is zero and the
+third term is also zero. We are left with the Euler-Lagrange equation.
+\beq
+    \dmu\left( \ddl{\mu} \right) - \frac{\partial \Lagr}{\partial \phi} = 0
+\eeq
+Plugging in the Lagrangian in the form of (\ref{sl}) we get,
+\beq \label{kg}
+    \dmu\Dmu \phi + m^2\phi = (\dmu\Dmu + m^2)\phi = 0
+\eeq 
+which is just the Klein-Gordon equation as expected.
+
+%%%%%%%----- Noether Charges ------%%%%%%%%
+\subsection{Noether's Charges}
+In class we derived an expression for the Noether current due to a infinitessimal space-time translation $\Delta \phi$ that leaves the lagrangian invariant,
+\beq
+    J^{0}_{\nu} = \ddl{0} \dnu \phi - \delta^{0}_{\nu}\Lagr
+\eeq
+Now because we are splitting the complex field into two independant fields we should rewrite this as,
+\beq \label{noeth}
+    J^{0}_{\nu} = \frac{\partial \Lagr}{\partial(\partial_{0}\phi_{\alpha})} \dnu \phi_{\alpha} - \delta^{0}_{\nu} \Lagr
+\eeq
+where we have indexed the fields by $\alpha$ and we can see we should just sum over the fields.
+We also defined the conjugate momentum to $\phi$ as,
+\beq
+    \pi \equiv \ddl{0}
+\eeq
+Using our Lagrangian \ref{csl} for $\pi$ and $\pi^*$ we have,
+\beq
+    \pi \equiv \ddl{0} = \partial_{0} \phi^* \text{ ; } \pi^* \equiv \cddl{0} = \partial_{0} \phi
+\eeq
+Evaluating first the $\nu=0$ component of (\ref{noeth}),
+\beq \begin{split}
+    &J^{0}_{0} = \ddl{0} \partial_0 \phi + \cddl{0} \partial_0 \phi^* - \Lagr \\
+    &= \pi \dz\phi + \pi^*\dz\phi^* - \Dmu\phi^* \dmu\phi + m^2 \phi^*\phi \\
+    &= \pi\pi^* + \pi^*\pi - \Dz\phi^*\dz\phi- \partial^i\phi^* \partial_i\phi + m^2 \phi^*\phi \\
+    &= \pi\pi^* + \pi^*\pi -\pi\pi^* - \nabla\phi^* \nabla \phi + m^2 \phi^* \phi \\
+    &= \pi^*\pi - \nabla\phi^* \nabla \phi + m^2 \phi^* \phi = \mathcal{H}
+\end{split} \eeq
+which is the Hamiltonian density. The Hamiltonian is then,
+\beq
+    H = \int d^3x \left\{ \pi^*\pi - \nabla\phi^* \nabla \phi + m^2 \phi^* \phi   \right\}
+\eeq
+Now the $\nu=i$ components of the current which will be the momentum density,
+\beq
+    J^0_i = \ddl{0} \partial_i \phi + \cddl{0} \partial_i \phi^* = \pi \nabla\phi + \pi^*\nabla\phi^* = \mathcal{P}_i
+\eeq
+and similarly when integrated these currents make up the physical momentum.
+\beq
+    \vec{P} = \int d^3x (\pi\nabla\phi + \pi^*\nabla\phi^*)
+\eeq
+So now we have all of the Noether charges associated with space-time translations.
+\beq
+    Q_\mu = (H, \vec{P})
+\eeq
+
+For a complex scalar field there is another transformation that leaves the Lagrangian invariant. It is of the form $\phi(x) \rightarrow e^{i\alpha}\phi(x)$ with $\alpha$ a constant.
+\beq
+    \Lagr = \Dmu\phi^* \dmu\phi - m^2\phi^*\phi \rightarrow \Dmu(e^{-i\alpha}\phi^*) \dmu(e^{i\alpha}\phi) - m^2(e^{-i\alpha}\phi^*)(e^{i\alpha}\phi)
+\eeq
+It is easy to see that the factors of $e^{i\alpha}$ all cancel out and leave the lagrangian unchanged.
+To calculate the current associated with this transformation we need to use the infinitesimal form,
+\beq
+    \delta \phi(x) = i\alpha\phi ; \delta \phi^* = -i\alpha\phi^*
+\eeq
+Now we can calculate the current using,
+\beq \begin{split}
+    &j^\mu = \ddl{\mu} \delta\phi + \cddl{\mu}\delta\phi^* = \ddl{\mu} i\alpha\phi - \cddl{\mu}i\alpha\phi^* \\
+    &= i\alpha \left[ (\Dmu\phi^*)\phi - (\Dmu \phi)\phi^* \right] = i\alpha \left[ \phi^* \stackrel{\leftrightarrow}{\partial^{\mu}}\phi \right] \\
+\end{split} \eeq 
+From this we can see that the Noether's charge for this internal symmetry is,
+\beq
+    Q= \int d^3x j^0 = i\alpha \int d^3x \left[ \phi^* \stackrel{\leftrightarrow}{\partial^{0}}\phi \right]
+\eeq
+    
+\subsection{Plane Wave Solutions}
+
+To get some solutions to the Klein-Gordon equation we first want to Fourier transform $\phi(x)$.
+\beq
+    \phi(\vec{x},t) = \forint \phi(\vec{p},t)
+\eeq
+I will write $\phi(\vec{p},t)$ as $\phi_p$. If we substitute this transformation into the K-G equation we get.
+\beq
+    (\Dmu \dmu + m^2) \forint \phi_p = 0
+\eeq
+Splitting the derivatives up into time and space components and multiplying out the $(2\pi)^3$,
+\beq \begin{split}
+    &\left[\frac{\partial^2}{\partial t^2} - \frac{\partial^2}{\partial x^2} + m^2 \right] \int d^3p e^{ipx}\phi_p \\
+    &= \int d^3p \left[\frac{\partial^2}{\partial t^2}e^{ipx}\phi_p - \frac{\partial^2}{\partial x^2}e^{ipx}\phi_p + m^2e^{ipx}\phi_p \right]\\
+    &= \int d^3p e^{ipx} \left[ \frac{\partial^2}{\partial t^2}\phi_p + p^2\phi_p +m^2\phi_p \right] = 0\\
+\end{split} \eeq
+Since $e^{ipx}$ is never zero the rest of the integrand must be zero and so the Fourier transformed K-G equation is (and its complex conjugate),
+\beq \begin{split}
+   &\left( \frac{\partial^2}{\partial t^2} +p^2 +m^2 \right) \phi_p = 0 \\
+   &\left( \frac{\partial^2}{\partial t^2} +p^2 +m^2 \right) \phi^*_p = 0 \\
+\end{split} \eeq
+
+These equations we recognize as the harmonic oscillator with frequency $\omega_p = \sqrt{p^2+m^2}$. We proceed the same way as in the normal quantum harmonic oscillator
+by writing $\phi(x)$ as a linear combination of creation and annihilation operators. In this case however we are dealing with a continuum of plane waves with momentum $p$ so we will need an infinite number of these operators which will be indexed by $p$.
+\beq
+    \phi(t,\vec{x}) = \dpint \frac{1}{\sqrt{2\omega_p}} \left( a_p e^{ipx-i\omega_p t} + b^*_p e^{-ipx+i\omega_p t} \right)
+\eeq
+In the real scalar field case we got that the two Fourier coefficients were just complex conjugates of eachother, but now since we do not have the condition that $\phi(x)$
+must be real this is no longer the case. Now evaluating $\pi(x)=\partial_0 \phi^*(x)$ we get,
+\beq \begin{split}
+    &\pi(t,\vec{x}) = \dpint \frac{1}{\sqrt{2\omega_p}} \left( i \omega_p a^*_p e^{-ipx+i\omega_p t} - i\omega_p b_p e^{ipx-i\omega_p t} \right)\\
+     &= \dpint i \sqrt{\frac{\omega_p}{2}} \left( a^*_p e^{-ipx+i\omega_p t} - b_p e^{ipx-i\omega_p t} \right)\\
+\end{split} \eeq
+Now that we have $\phi(x)$ and $\pi(x)$ we can invert these to find expressions for $a_p$ and $b_p$. The easiest way to do this is to look at linear combinations of 
+$\phi(x)$ and $\pi(x)$ and then take the inverse Fourier transform.
+\beq \begin{split}
+    &\sqrt{\frac{\omega_p}{2}}\phi(x)+\frac{i}{\sqrt{2\omega_p}}\pi^*(x) = \dpint \left\{ \frac{1}{2} \left( a_pe^{ipx}+b^*_p e^{-ipx}\right) +\frac{1}{2}\left(a_p e^{ipx} - b^*_p e^{-ipx} \right)  \right\} \\
+    &= \dpint a_p e^{ipx} \\
+\end{split} \eeq
+Then inverse Fourier transform both sides to get
+\beq
+    a_p = \int d^3x \left( \sqrt{\frac{\omega_p}{2}} \phi(x) + \frac{i}{\sqrt{2\omega_p}} \pi^*(x) \right) e^{-ipx}
+\eeq
+Doing the same thing but with $\phi^*(x) + \pi(x)$ we get,
+\beq
+    b_p = \int d^3x\left( \sqrt{\frac{\omega_p}{2}} \phi^*(x) + \frac{i}{\sqrt{2\omega_p}} \pi(x) \right) e^{-ipx}
+\eeq
+\subsection{Time Dependence of $\hat{a}_p$}
+To show that $\hat{a}_p$ does not depend on time we just have to take a time derivative and show that it is zero.
+\beq \begin{split}
+    & \partial_0 \hat{a}_p = \int d^3x \left( \sqrt{\frac{\omega_p}{2}} \partial_0 \phi+\frac{i}{\sqrt{2\omega_p}}\partial^2_0 \phi \right) e^{-ipx}+ \left(\sqrt{\frac{\omega_p}{2}} \phi+\frac{i}{\sqrt{2\omega_p}}\partial_0 \phi \right)(i\omega_p) e^{-ipx} \\
+    &= \int d^3x\left(\sqrt{\frac{\omega_p}{2}} \partial_0 \phi+\frac{i}{\sqrt{2\omega_p}}\partial^2_0 \phi +\frac{i\omega^2}{\sqrt{2\omega_p}}\phi -\sqrt{\frac{\omega_p}{2}}\partial_0 \phi \right) e^{-ipx} \\
+    &= \int d^3x\frac{i}{\sqrt{2\omega_p}} \left(\partial^2_0 \phi + \omega^2_p \phi \right) e^{-ipx}=\int d^3x\frac{i}{\sqrt{2\omega_p}} \left(\partial^2_0 \phi + (p^2+m^2) \phi \right) e^{-ipx} = 0 \\
+\end{split} \eeq
+where in the last step we have used the equation of motion.
+
+%%%%%%%%%----------- Quantum Section -------------%%%%%%%%%%%%%%%%%%%
+\section{Quantum Theory}
+To go to the second quantization we must:
+\begin{itemize}
+    \item Promote $\phi(x)$ and $\pi(x)$ to operators.
+    \item Demand that they satisfy the canonical commutation relations.
+    \item In analogy with the quantum harmonic oscillator, find all operators and their commutators.
+    \item Where needed apply normal ordering.
+    \item Time order products of operators to preserve Lorentz invariance.
+\end{itemize}
+The canonical commutation relations are,
+\beq \label{comm} \begin{split}
+    &[\phi(x),\phi(y)] = [\pi(x),\pi(y)] = 0  \\
+    &[\phi(x), \pi(y)] = i\delta^3(x-y)  \\
+    &[\phi(x), \pi^*(y)] = 0 \text{, and any others by taking complex conjugates.}
+\end{split} \eeq
+
+%%%%%%%%%%%-------- Commutators ------------%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Other Commutators}
+
+Another commutator we wish to evaluate is $[P_a, P_b]$. This is easy using (\ref{comm}).
+\beq \begin{split}
+    [P_a,P_b] = \int d^3x[\pi(x)\dxa\phi(x) - \pi^*(x)\dxb\phi^*(x), \pi(y)\dya\phi(y) - \pi^*(y)\dyb\phi^*(y)] \\
+\end{split} \eeq
+If we label each term in the commutator $A,B,C,\text{ and }D$ respectively we can examine this commutator in parts to make it easier. Multiplied out this will look like
+$AC-AD-BC+BD-CA+DA-DB$. Lets first look at $AC-CA$.
+\beq \begin{split}
+    &AC-CA = \pi(x)\dxa\phi(x)\pi(y)\dyb\phi(y) - \pi(y)\dyb\phi(y)\pi(x)\dxa\phi(x) \\
+    &= \pi(x)\pi(y) \left( \dxa\phi(x)\dyb\phi(y) - \dyb\phi(y)\dxa\phi(x) \right) \\
+    & = \pi(x)\pi(y) \dxa\dyb[\phi(x),\phi(y)] = 0 \\
+\end{split} \eeq
+where I have used the commutators in (\ref{comm}) and the fact that partial derivatives commute. We can take the complex conjugate of the above calculation and this gives us that the terms $BD-DB=0$ as well. And finally from the last line in (\ref{comm}) we can see that the remaining terms which are cross terms between the fields and their 
+complex conjugates will all trivially commute and are therefore also zero. Putting it all together we arrive at the conclusion that,
+\beq
+    [P_a,P_b] = 0
+\eeq
+
+Next we will look at the creation and annihilation operators. These commutators we can get from the canonical ones (\ref{comm}).
+\newcommand{\ttop}[1]{\sqrt{\frac{\omega_{#1}}{2}}}
+\newcommand{\bbot}[1]{\frac{i}{\sqrt{2\omega_{#1}}}}
+\beq 
+    [\hat{a}_p, \hat{a}^\dagger_q] = \int d^3x d^3y \left[\ttop{p}\phi(x) + \bbot{p} \pi^*(x), \ttop{q}\phi^*(y) - \bbot{q}\pi(y)\right]e^{-ipx}e^{iqy}
+\eeq
+Expanding this out, we can see that we can make commutators with each of the $\phi$s and $\pi$s. The only commutators that are non-zero will be $[\phi(x),\pi(y)]$ and $[\pi^*(x),\phi^*(y)]$. Writing thses out we get,
+
+\beq \begin{split}
+    &[\hat{a}_p,\hat{a}^\dagger_q] = \int d^3x d^3y \left(\frac{i}{2}\sqrt{\frac{\omega_p}{\omega_q}}[\phi(x),\pi(y)] + \frac{i}{2}\sqrt{\frac{\omega_q}{\omega_p}}[\pi^*(x),\phi^*(y)] \right)e^{-ipx+iqy} \\
+    & = \int d^3x d^3y \left(\frac{i}{2}\sqrt{\frac{\omega_p}{\omega_q}}i\delta^3(x-y) + \frac{i}{2}\sqrt{\frac{\omega_q}{\omega_p}}i\delta^3(x-y) \right)e^{-ipx+iqy} \\
+    &= \int d^3x \left(\frac{1}{2}\right)\left(\sqrt{\frac{\omega_p}{\omega_q}} +\sqrt{\frac{\omega_p}{\omega_q}} \right)e^{ix(q-p)} \\
+    & = \delta^3(p-q) \\
+\end{split}\eeq 
+and the same calculation can be carried out for $[\hat{b}_p,\hat{b}^\dagger_q]=\delta^3(p-q)$. All other commutators are zero which can be seen again from (\ref{comm}) since the 
+only commutators that will appear are the trivial ones. Just as in the real scalar field case these operators act on the $|0\rangle$ state as,
+\beq
+    \hat{a}_p|0\rangle = 0 \text{ ;         } \hat{b}_p|0\rangle = 0
+\eeq    
+
+We can define number operators as well for the complex scalar field. This field will have 2 number operators unlike the real field which only has one.
+\beq
+    N_a(p) \equiv \hat{a}^\dagger_p \hat{a}_p \text{      ;      }  
+    N_b(p) \equiv \hat{b}^\dagger_p \hat{b}_p
+\eeq
+which will act on their eigenstates as
+\beq
+    N_a(p)|a(p),b(p)\rangle = a(p)|a(p),b(p)\rangle \text{ ; } N_b(p)|a(p),b(p)\rangle = b(p)|a(p),b(p)\rangle
+\eeq
+We have labeled these eigenstates as being common to both number operators which is easy to see is the case using the $\hat{a}$ and $\hat{b}$ commutators
+\beq
+    [N_a,N_b] = a^\dagger a b^\dagger b - b^\dagger b a^\dagger a = a^\dagger a b^\dagger b - a^\dagger a b^\dagger b = 0
+\eeq
+Finding the commutators for the number operators and the creation and annihilation operators will help us to find the spectrum of eigenvalues and eigenstates
+\beq
+    [N_a, a^\dagger] = a^\dagger a a^\dagger - a^\dagger a^\dagger a = a^\dagger(a^\dagger a + 1) - a^\dagger a^\dagger a = a^\dagger
+\eeq
+and similarly for the others,
+\beq
+    [N_a, a] = a \text{ ; } [N_b, b^\dagger] = b^\dagger \text{ ; } [N_b, b] = b
+\eeq
+Consider the state,
+\beq \begin{split}
+    &N_a \hat{a}^\dagger|a(p)\rangle = (\hat{a}^\dagger N_a + \hat{a}^\dagger)|a(p)\rangle = (a(p)+1)\hat{a}^\dagger|a(p)\rangle \\
+    &N_a \hat{a}|a(p)\rangle = (\hat{a} N_a - \hat{a})|a(p)\rangle = (a(p)-1)\hat{a}|a(p)\rangle \\
+\end{split} \eeq
+similar for $N_b$. So these are similar ladder operators to the real scalar case but now we have two different particles created by the operators $\hat{a}^\dagger$
+and $\hat{b}^\dagger$.
+We write eigenstates of $\hat{a}^\dagger_p$ and $\hat{b}^\dagger_p$ as
+\beq
+    |n(p),m(p)\rangle = \Pi_p \hat{a}^{\dagger n(p)}_p \hat{b}^{\dagger m(p)}_p|0\rangle
+\eeq
+
+\subsection{Noether Charges Again}
+
+Using our expressions for $\phi(x)$ and $\pi(x)$ we can calculate the Noether charges from the earlier section in terms of the number operators, creation and annihilation 
+operators.
+\beq \begin{split}
+    &H = \int d^3x \left( \pi^*\pi -\nabla \phi^* \nabla \phi+m^2\phi^*\phi \right) \\
+\end{split} \eeq
+Going term by term,
+\newcommand{\dg}{^\dagger}
+\beq \begin{split}
+    &\pi^*\pi = \dpint \frac{\omega}{2}(a a\dg -abff-b\dg a\dg f^*f^*+b\dg b)\\
+    &\nabla \phi^* \nabla \phi = \dpint \frac{p^2}{2\omega_p}(a\dg a-a\dg b\dg f^*f^*-baff+bb\dg) \\
+    &m^2\phi^* \phi = \dpint \frac{m^2}{2\omega_p}(a\dg a +a\dg b\dg f^*f^*+baff+bb\dg)
+\end{split} \eeq
+Using the fact that $\omega^2_p = \sqrt{p^2+m^2}$ allows us to combine and cancel terms. We are left with
+\beq
+    H = \dpint \omega_p(\hat{a}\dg \hat{a} + \hat{b} \hat{b}\dg) = \dpint \omega_p(N_a+N_b+1)
+\eeq
+The 1 comes from commuting $\hat{b}$ and $\hat{b}\dg$.This looks like just a sum of the number of each particle multiplied by its energy which makes sense.
+Now we do the same thing for the charge $P$.
+\beq
+    P = \int d^3x(\pi\nabla\phi + \pi^*\nabla\phi^*) = \dpint p(a\dg a + b\dg b) = \dpint p(N_a+N_b)
+\eeq
+For the charge associated with the internal U(1) symmetry,
+\beq
+    Q = \int d^3x i(\phi^* \partial_0 \phi - \partial_0 \phi^* \phi) = \dpint (a\dg a - b\dg b) = \dpint (N_a - N_b)
+\eeq
+
+\subsection{Feynman Propagator}
+\newcommand{\bracket}[3]{\langle #1 | #2 | #3 \rangle}
+\newcommand{\ff}[2]{ f_{#1}(#2)}
+We want to evaluate the amplitude for an a-type particle to be created at $x$ and destroyed at $y$, $\bracket{0}{\phi(t',y)\phi^*(t,x)}{0}$. For this to be Lorentz
+invariant we must time order the product in the bracket.
+\beq \label{top}
+    \bracket{0}{T\phi(t',y)\phi^*(t,x)}{0} = \bracket{0}{\phi(t',y)\phi^*(t,x)}{0} \Theta(t'-t) + \bracket{0}{\phi^*(t,x)\phi(t',y)}{0} \Theta(t-t')
+\eeq 
+Evaluating the first term,
+\beq \begin{split}
+    &\bracket{0}{\phi(y),\phi^*(x)}{0} = \bracket{0}{\int dp dq \left[(a_p \ff{p}{y}+ b\dg_p \ff{p}{y}^*)(a\dg_q \ff{q}{x} + b_q \ff{q}{x})\right]   }{0} \\
+    & = \bracket{0}{\int dp dq \left[ a_p \ff{p}{y} a\dg_q \ff{q}{x}^* + a_p\ff{p}{y}b_q\ff{q}{x} + b\dg_p \ff{p}{y}^* a\dg_q \ff{q}{x}^* + b\dg_p \ff{p}{y} b_q \ff{q}{x}  \right]  }{0} \\
+\end{split}\eeq
+Operating on the $|0\rangle$ with the all of the lowering operators we get every term except for the first vanishing.
+\beq \begin{split}
+    &= \bracket{0}{\int dp dq \ff{p}{y} \ff{q}{x}^* a_p a\dg_q  }  {0} = \bracket{0}{\int dp dq \ff{p}{y} \ff{q}{x}^* (a_p a\dg_q - a\dg_q a_p ) }  {0} \\
+    &= \bracket{0}{\int dp dq  \ff{p}{y} \ff{q}{x}^* [a_p, a\dg_q]    }{0} = \bracket{0}{\int dp dq  \ff{p}{y} \ff{q}{x}^* \delta(p-q)    }{0} \\
+    &= \int dp dq  \ff{p}{y} \ff{q}{x}^* \langle 0 | 0 \rangle = \int \frac{dp}{(2\pi)^3} \frac{1}{2\omega_p} e^{ip(y-x)} \\
+\end{split} \eeq
+Using this in the definition of the time ordered product (\ref{top}) we get,
+\beq 
+    \bracket{0}{T\phi(t',y)\phi^*(t,x)}{0} =\dpint\frac{1}{2\omega_p}\left[ \Theta(t'-t)e^{ip(y-x)} + \Theta(t-t')e^{-ip(x-y)}\right]
+\eeq 
+Inserting the integral definition of the $\Theta$ function
+\beq
+    \Theta(t-t') = \frac{i}{2\pi} \int d\omega \frac{e^{-i\omega(t-t')}}{\omega + i\epsilon}
+\eeq
+From here we go through the same process as in class where we rearrange to explicitly show which way the poles should be shifted in the complex integral.
+
+
+\beq \begin{split}
+    &\bracket{0}{T\phi(t',y)\phi^*(t,x)}{0} = \frac{i}{(2\pi)^4} \int \frac{dp d\omega}{2\omega_p} \left[ \frac{e^{ip(y-x)}e^{-i(\omega_p + \omega)(t'-t)} }{\omega + i\epsilon} + \frac{e^{ip(x-y)}e^{-i(\omega_p + \omega)(t-t')}}{-\omega + i\epsilon}     \right] \\ 
+    & \text{Redefine } \omega = \omega_p + \omega \\
+    & =  \frac{i}{(2\pi)^4} \int \frac{dp d\omega}{2\omega_p} e^{-ip(y-x)}\left[ \frac{e^{-i\omega(t'-t)} }{\omega - \omega_p + i\epsilon} - \frac{e^{-i\omega(t-t')}}{\omega + \omega_p - i\epsilon}     \right] \\
+    &= \frac{i}{(2\pi)^4} \int d^4p e^{-ip(y-x)} \left[ \frac{1}{(\omega - [\omega_p -i\epsilon])(\omega - [-\omega_p +i\epsilon)}    \right] \\
+    &=\frac{i}{(2\pi)^4} \int d^4p e^{-ip(y-x)} \left[  \frac{1}{\omega^2 - \omega_p + i(2\omega_p)\epsilon}\right] \text{, let } \epsilon = i(2\omega_p)\epsilon  \\
+    &=\frac{i}{(2\pi)^4} \int d^4p e^{-ip(y-x)} \left[  \frac{1}{p^2-m^2 + i\epsilon}\right] \\
+\end{split} \eeq  
+
+Now with the amplitude solved for we define the Feynman Propagator,
+\beq
+    \Delta_F(y-x) = -i \bracket{0}{T\phi(t',y)\phi^*(t,x)}{0} =\int \frac{d^4p}{(2\pi)^4} e^{-ip(y-x)} \left[  \frac{1}{p^2-m^2 + i\epsilon}\right]
+\eeq
+
+
+\end{document}
+
+
+

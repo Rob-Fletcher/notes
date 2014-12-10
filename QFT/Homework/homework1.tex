@@ -1,0 +1,163 @@
+\documentclass{article}
+\usepackage{amssymb, amsmath}
+\numberwithin{equation}{section}
+\title{QFT Homework 1}
+\author{Rob Roy Fletcher}
+
+%%%%%%%%----  Macros ----%%%%%%%%%%%%%%%
+\newcommand{\Lagr}{\mathcal{L}}  %lagrangian
+\newcommand{\dxa}{\partial_{x_a}} 
+\newcommand{\dxb}{\partial_{x_b}}
+\newcommand{\dxc}{\partial_{x_c}}
+\newcommand{\dya}{\partial_{y_a}} 
+\newcommand{\dyb}{\partial_{y_b}}
+\newcommand{\dyc}{\partial_{y_c}}
+\newcommand{\A}  {\pi(x)}
+\newcommand{\B}  {\partial_{x_a} \phi(x)}
+\newcommand{\C}  {\pi(y)}
+\newcommand{\D}  {\partial_{y_b} \phi(y)}
+
+\newcommand{\ddf}{\delta^3(x-y)}
+\newcommand{\intdd}{\int d\vec{x} d\vec{y}}
+
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+
+%%%%%%%---- Begin Document ----%%%%%%%%%%
+\begin{document}
+\section{Problem 1}
+
+\beq \label{integral}
+    [M_{ab},P_c] = -i \eta_{ac} P_b + i\eta_{bc} P_a = \intdd [x_a \pi(x) \dxb \phi(x), \pi(y) \dyc \phi(y)] - (a \leftrightarrow b)
+\eeq
+Given the commutators,
+\beq \label{com} 
+\begin{split}
+    &[\pi(x), \pi(y)]=[\phi(x), \phi(y)]=0 ,\\
+    &[\pi(x), \phi(y)] = c\ddf
+\end{split} \eeq
+show that $ c=-i$.
+
+Let, $ A=\pi(x)$, $B=\dxb\phi(x)$, $C=\pi(y)$, and $D=\dyc\phi(y)$. Then pulling out the $x_a$, the commutator in the integral  eq.\ref{integral} is
+just $[AB,CD] = ABCD - CDAB$. Now rearange the second term using $ba=ab-[a,b]$ and commuting the AB to the front.
+\beq \begin{split}
+    &[AB,CD]=ABCD-CDAB=ABCD - C(AD-[A,D])B\\
+    &= ABCD - CADB + C[A,D]B \\
+    &= ABCD - (AC-[A,C])DB + C[A,D]B \\
+    &= ABCD - ACDB + [A,C]DB + C[A,D]B 
+\end{split} \eeq 
+Now commute the second position in the second term by the same method.
+\beq \begin{split} 
+   & =ABCD-AC(BD-[B,D])+[A,C]DB+C[A,D]B \\
+   & = ABCD-ACBD + AC[B,D]+[A,C]DB+C[A,D]B \\
+   & =ABCD-A(BC-[B,C])D+AC[B,D]+[A,C]DB+C[A,D]B \\
+   & =ABCD-ABCD+A[B,C]D+AC[B,D]+[A,C]DB+C[A,D]B
+\end{split} \eeq 
+The first two terms cancel and we are left with
+\beq
+    [AB,CD]=A[B,C]D+AC[B,D]+[A,C]DB+C[A,D]B
+\eeq
+Now plug back in for A,B,C and D.
+\beq \begin{split}
+   & [\pi(x) \dxb \phi(x), \pi(y)\dyc\phi(y)] =\\
+   & \pi(x)[\dxb\phi(x),\pi(y)]\dyc\phi(y) + \pi(x)\pi(y)[\dxb\phi(x),\dyc\phi(y)]\\
+   & +[\pi(x),\pi(y)]\dyc\phi(y)\dxb\phi(x) + \pi(y)[\pi(x),\dyc\phi(y)]\dxb\phi(x)
+\end{split} \eeq
+
+It is now possible to simplify these using the commutators given in eq.\ref{com} \\*
+1st Term:
+\beq \begin{split}
+    &\pi(x)[\dxb\phi(x),\pi(y)]\dyc\phi(y) = \pi(x) \dxb[\phi(x),\pi(y)]\dyc\phi(y)\\
+    &=-c\pi(x)\dxb\ddf\dyc\phi(y)
+\end{split}
+\eeq 
+2nd Term:
+\beq 
+    \pi(x)\pi(y)[\dxb\phi(x),\dyc\phi(y)] = 0
+\eeq
+3rd Term:
+\beq
+    [\pi(x),\pi(y)]\dyc\phi(y) \dxb\phi(x) = 0
+\eeq
+4th Term:
+\beq \begin{split}
+    \pi(y)[\pi(x),\dyc\phi(y)]\dxb\phi(x) \\
+    = c\pi(y)\dyc\ddf\dxb\phi(x)
+\end{split} \eeq
+Substituting back into the original integral eq.\ref{integral} and looking only at the first term we get,
+\beq
+    -c \intdd x_a(\pi(x) \dxb\ddf\dyc\phi(y))
+\eeq
+If we integrate this by parts we can move the derivative from the delta function to the $\pi(x)$. Because we assume
+the fields go to zero at infinity, the surface term is zero. So we have,
+\beq
+    c \intdd x_a (\dxb \pi(x))(\dyc \phi(y))\ddf + c\intdd (\dxb x_a)\pi(x)(\dyc\phi(y))\ddf
+\eeq
+And now doing the same thing to the 4th term,
+\beq \begin{split}
+    &c \intdd x_a (\pi(y) \dyc\ddf \dxb \phi(x))\\
+    &= -c\intdd x_a (\dyc \pi(y))(\dxb \phi(x))\ddf
+\end{split} \eeq
+Evalute the y integral with the delta function and use the fact that $\dxb x_a = \eta_{ba}$ the full integral now reads,
+\beq \begin{split}
+    c\intdd [x_a (\dxb\phi(x))(\dxc\phi(x))+\eta_{ba} \pi(x)(\dxc\phi(x))-x_a(\dxc \pi(x))(\dxb\phi(x))] - (a \leftrightarrow b)
+\end{split} \eeq
+Because is a symmetric matrix $\eta_{ba} = \eta_{ab}$ so the $\eta_{ba}$ term above will cancel with its corresponding term under the exchange of a and b. 
+Integrating by parts again on the remaining two terms in the same way as before,
+\beq \begin{split}
+    &c \int d\vec{x} (\dxc x_a) \pi(x)(\dxb\phi(x)) + c \int d\vec{x} x_a \pi(x)(\dxc \dxb \phi(x)) \\
+    &-c \int d\vec{x}(\dxb x_a) \pi(x)(\dxc\phi(x)) - c \int d\vec{x} x_a \pi(x)(\dxb \dxc \phi(x))
+\end{split} \eeq
+Using $P_a=\int d\vec{x} \pi(x) \dxa \phi(x)$ and the fact that partial derivatives commute to cancel two of the terms we get,
+\beq
+    c \eta_{ac}P_b - c\eta_{ab}P_c
+\eeq
+And finally putting in the terms with $a \leftrightarrow b$ and setting it equal to eq.\ref{integral},
+\beq \begin{split}
+    &c \eta_{ac}P_b - c\eta_{ab}P_c + c\eta_{ba}P_c - c\eta_{bc}P_a \\
+    & = - i\eta_{ab}P_c + i\eta_{bc}P_a
+\end{split}
+\eeq
+Now we can see that we have $c=-i$.
+
+\section{Problem 2}
+
+Using anti-commutators in a way similar to above, show that $c=i$. Given,
+\beq
+    [P_a,P_b]= \intdd[\pi(x) \dxa \phi(x), \pi(y) \dyb \phi(y)] = 0
+\eeq
+Doing the same procedure as problem 1, commute the $\pi(y)$ and $\phi(y)$ this time using the anti-commutator. Making the same definitions for A, B, C, D we get the same
+result as above but with different signs.
+\beq \begin{split}
+    [AB,CD] = \{A,C\}DB + A\{B,C\}D - C\{A,D\}B - AC\{B,D\}
+\end{split} \eeq
+Plugging everything back in we have,
+\beq \begin{split}
+    &\intdd[\A\B,\C\D] = \\
+    &\intdd (\{\A,\C\}\D\B + \A\{\B,\C\}\D \\
+    &- \C\{\A,\D\}\B - \A\C\{\B,\D\}) = 0
+\end{split} \eeq
+So demanding that this is zero we can see the first and last terms have nothing to cancel with so they must be zero. The middle two terms will only cancel if
+$\{\pi(x),\phi(y)\} = c\ddf$. Therefore we have,
+\beq \begin{split}
+    & \{\pi(x),\pi(y)\} = \{\phi(x), \phi(y)\} = 0 \\
+    & \{\pi(x),\phi(y)\} = c\ddf
+\end{split} \eeq
+To find the constant c we use the same procedure as in the first problem with the commutator $[M_{ab},P_c]$. From the previous part we have,
+\beq \begin{split}
+    &\intdd[\A\B,\C\D] = \\
+    &\intdd x_a(\A\{\B,\C\}\D \\
+    &- \C\{\A,\D\}\B) = -i\eta_{ac}P_b+i\eta_{bc}P_a
+\end{split} \eeq
+and pluggin in the remaining anti-commutators
+\beq \begin{split}
+    &= \intdd cx_a(\A\dxb\ddf\D \\
+    &- \C\dyc\ddf\B) = -i\eta_{ac}P_b+i\eta_{bc}P_a
+\end{split} \eeq
+This is exactly the same two terms we end up with in problem 1 (eq.1.7 and eq.1.10) but with opposite signs so from here we can see that after integrating by parts many times we will end up
+with $c=i$.
+
+\end{document}
+
+
+
