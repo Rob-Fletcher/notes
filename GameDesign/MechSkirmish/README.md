@@ -38,7 +38,7 @@ get cards from your damage pile back into your hand.
 ## Game Ideas Wishlist
 Some general ideas or mechanics that I would really like to figure out how to
 include.
- - Secret movement:
+ - Secret movement selection:
    * X-wing uses dials to select your movement and eveyone picks in secret all
    at once. The dials are then flipped and movement proceeds based on the skill
    of the pilot. For this game I would like to include the secret movement to
@@ -61,6 +61,19 @@ include.
    Maybe there could be a spot on the dial for play card, so you select it on
    the dial, then once players flip their dials to reveal, you can then play a
    card if you selected that movement option.
+   * Something else that might work if cards are used for movement is that instead
+   of separating the movement and attack phases, you combine them. Maybe require
+   that the players both play two facedown cards. These cards could be any combination
+   of movement and attack. This could be really interesting if you have some attacks
+   that require you to target a specific space. Like firing a missile volley that
+   deals damage within 1 range of a specific hex. Then if this is a slow attack,
+   there is a chance that the enemy mech might move out of the attack zone before
+   the missiles actually land. This might be kind of a cool way to simulate the
+   hectic "dog fighting" type combat with mechs dodging and such. Then you could
+   also have attack cards that cannot be played with a movement card or that get
+   negatives if they are played with a movement card. Im still a little worried
+   about this limiting movement too much. Like you dont have any moves in your
+   hand, or you dont want to move but only have movements.
 
  - Power Consumption:
    * I would also like to add in power consumption on a per tern basis. So,
