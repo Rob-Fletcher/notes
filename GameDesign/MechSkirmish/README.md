@@ -33,7 +33,8 @@ objectives or scenario specific things that you have to get to or move around.
 
 Mechs will also have smaller mechs/vehicles that they can deploy or that they
 start with to help out. These will be things like a repair mech that can help you
-get cards from your damage pile back into your hand.
+get cards from your damage pile back into your hand. Maybe have ground troops too.
+Units that arent in a mech at all.
 
 ## Game Ideas Wishlist
 Some general ideas or mechanics that I would really like to figure out how to
@@ -74,6 +75,11 @@ include.
    negatives if they are played with a movement card. Im still a little worried
    about this limiting movement too much. Like you dont have any moves in your
    hand, or you dont want to move but only have movements.
+   * All secret selection could be done behind a screen. That way if you dont
+   play anything the other players cant tell. So once everyone says they are done
+   making their selections, all players just lift their screen then start to
+   resolve moves and attacks.
+
 
  - Power Consumption:
    * I would also like to add in power consumption on a per tern basis. So,
@@ -98,6 +104,8 @@ include.
    round could progress is that both players play cards face down, then reveal
    at the same time similar to movement. Then attacks are resolved in order of
    speed.
+   * another option is to use special dice that just have hits and blanks on them.
+   for defending it could be similar, with dodges and blanks or whatever.
 
  - Cover:
    * I like how Heavy Hitters does cover on the hexes. If the shortest path between
