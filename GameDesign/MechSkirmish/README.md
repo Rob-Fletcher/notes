@@ -113,3 +113,18 @@ include.
    are two shortest paths and one of them goes through something then you have
    partial cover. If there is only one shortest path and it goes through something
    then you have full cover (and maybe cant be hit at all).
+
+## Early Test Versions:
+To start out I think I am going to just print off a deck of cards to do some testing with.
+
+### Version 0.0.1
+This will be the version where all movement is done through cards. Every turn
+all players will select up to two cards and place them behind their screen. Once
+all players have finished selecting cards, all players will lift their screens
+and begin to resolve actions in the order of fastest(lowest number) to slowest(highest number).
+
+This version will not use the auxiliary units yet and will not have mech power
+either.
+
+Basic rules and a growing list of all cards to be used can be found in the
+[Rules version 0.0.1 file](./rules-00-00-01.md)
