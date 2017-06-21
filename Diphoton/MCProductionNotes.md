@@ -20,10 +20,25 @@ You must setup Athena to run this.
 
 You can then run the following command to create the event file.
 
-    Generate_tf.py --ecmEnergy=13000. --maxEvents=100 --runNumber=344000 --firstEvent=1 --randomSeed=123456 --outputEVNTFile=EVNT.root --jobConfig=MC15.344000.aMcAtNloPythia8EvtGen_HC_NLO_X0toyy_70_NW.py
+    # Run the MC and Showering
+    Generate_tf.py --ecmEnergy=13000. --runNumber=344000 --firstEvent=1 --randomSeed=123456 --outputEVNTFile=EVNT.root --jobConfig=MC15.344000.aMcAtNloPythia8EvtGen_HC_NLO_X0toyy_70_NW.py
 
-Using that configuration file seems to also do the Pythia8 showering. Next you
-need to do the digitization and reconstruction.
+If you will be only validating the job options file, or are doing a simple truth
+study you can just make a truth derivation from this file. This is done by running
+the Reco_tf.py transform.
+
+    # Run the TRUTH derivation
+    Reco_tf.py --inputEVNTFile EVNT.root --outputDAODFile test.pool.root --reductionConf TRUTH1
+
+TRUTH1 is the level of detail to keep in the derivation. TRUTH0 will keep everything
+but the files will be the largest. TRUTH1 generally will keep everything you need
+but the files are around half the size (depends of the type of MC). TRUTH3 is the
+highest value you can give it. More information about the TruthDAODs can be
+found [here](https://twiki.cern.ch/twiki/bin/view/AtlasProtected/TruthDAOD).
+
+
+### Detector Simulation and Reconstruction
+Next you need to do the digitization and reconstruction.
 
 There is a script that helps to do the simulation. First I had to setup a newer
 version of Athena. I used 20.20.8. Then you can use the command GetTfCommand.py

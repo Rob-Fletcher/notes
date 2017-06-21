@@ -53,3 +53,27 @@ Drell-Yan process. This background is estimated from a dielectron sample using
 the photon reconstruction algorithms with no isolation applied. Because the
 photons come from electron bremsstrahlung their kinematics are slightly
 different than from electons and the shape must be corrected.
+
+### Electron to Photon Fake Rates
+Use dielectron and electron-photon events in a window around the Z peak in
+data. A template of the Drell-Yan background is then made.
+
+### Non-resonant Background Modeling
+Spurious signal method. Need to investigate new methods (SWiFt).
+
+### SM Higgs Background
+Since we are only searching up to 100 GeV, we shouldnt have to worry about this.
+
+## Systematic Uncertainties.
+Lots of systematics to evaluate.
+
+  * Production Mode
+  * Pile-up
+  * Energy Resolution
+  * Conversion Catagory
+  * Photon ID
+  * Photon Isolation
+  * Template fit (Z->ee)
+
+## Results
+Statistics and cross section limits.
